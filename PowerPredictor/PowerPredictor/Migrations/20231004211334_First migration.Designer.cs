@@ -12,7 +12,7 @@ using PowerPredictor;
 namespace PowerPredictor.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231004190347_First migration")]
+    [Migration("20231004211334_First migration")]
     partial class Firstmigration
     {
         /// <inheritdoc />
