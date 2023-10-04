@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\PowerPredictor.props" />
+</Project>
