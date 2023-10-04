@@ -64,4 +64,7 @@
   <ItemGroup>
     <None Include="DatabasePowerPredictor.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DatabasePowerPredictor.refactorlog" />
+  </ItemGroup>
 </Project>
