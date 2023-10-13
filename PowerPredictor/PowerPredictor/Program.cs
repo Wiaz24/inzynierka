@@ -1,9 +1,13 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PowerPredictor;
 using PowerPredictor.Data;
+using PowerPredictor.Models;
 using PowerPredictor.Services;
+using PowerPredictor.Services.Interfaces;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
@@ -13,12 +17,26 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddSingleton<LoadService>();
-builder.Services.AddDbContextFactory<AppDbContext>( (DbContextOptionsBuilder options) =>
-{
-    options.UseSqlServer(connectionString);
-});
+builder.Services.AddScoped<LoadService>();
 
+var emailSettings = builder.Configuration.GetSection("EmailSettings")
+    ?? throw new NullReferenceException("No email settings found in config file");
+builder.Services.Configure<EmailServiceConfiguration>(emailSettings);
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+//Entity framework core service
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddIdentity<User, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.SignIn.RequireConfirmedEmail = true;
+    options.Password.RequireNonAlphanumeric = false;
+})
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -35,6 +53,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

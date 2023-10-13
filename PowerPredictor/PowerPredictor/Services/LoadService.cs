@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PowerPredictor.DbModels;
 using PowerPredictor;
+using PowerPredictor.Models;
 
 namespace PowerPredictor.Services
 {
     public class LoadService
     {
-        private AppDbContext _context;
-        public LoadService(IDbContextFactory<AppDbContext> context)
+        private readonly AppDbContext _context;
+        public LoadService(AppDbContext dbContext)
         {
-            _context = context.CreateDbContext();
+            _context = dbContext;
         }
         public async Task<Load?> GetLoadAsync(int id)
         {

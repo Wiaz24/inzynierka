@@ -57,6 +57,14 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",
+      "PackagePath": "staticwebassets\\images\\pplogo-transparent.png"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
+      "PackagePath": "staticwebassets\\images\\pplogo.png"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.PowerPredictor.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

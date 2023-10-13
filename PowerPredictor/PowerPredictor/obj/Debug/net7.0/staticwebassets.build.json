@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HiZTyONG9swqGhkX6gohj44G+nuy7ZekkEXoqbnjg4M=",
+  "Hash": "iQXpBA7perUowWUC6vhd+Gqe9s2cYu+lfi8lwsIBk3o=",
   "Source": "PowerPredictor",
   "BasePath": "_content/PowerPredictor",
   "Mode": "Default",
@@ -270,6 +270,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
+      "SourceId": "PowerPredictor",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "BasePath": "_content/PowerPredictor",
+      "RelativePath": "images/pplogo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pplogo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",
+      "SourceId": "PowerPredictor",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "BasePath": "_content/PowerPredictor",
+      "RelativePath": "images/pplogo-transparent.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pplogo-transparent.png"
     }
   ]
 }
