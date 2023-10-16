@@ -1,0 +1,27 @@
+﻿@page "/AdminPanel"
+@inject ILoadService loadService
+@*@attribute [Authorize(Roles = "Admin")]*@
+
+@if (isLoading)
+{
+    <button class="btn btn-primary" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+        Updating Database...
+    </button>
+}
+else
+{
+    <button class="btn btn-primary shadow" @onclick="UpdateDatabase">
+        Update Database
+    </button>
+}
+
+@code {
+    private bool isLoading = false;
+    private async Task UpdateDatabase()
+    {
+        isLoading = true;
+        await loadService.DownloadLoadsAsync(new DateOnly(2023, 10, 1), new DateOnly(2023, 10, 15));
+        isLoading = false;
+    }
+}

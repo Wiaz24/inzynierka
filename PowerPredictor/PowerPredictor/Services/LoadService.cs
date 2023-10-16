@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PowerPredictor;
 using PowerPredictor.Models;
+using PowerPredictor.Services.Interfaces;
+using HtmlAgilityPack;
+using System.Globalization;
 
 namespace PowerPredictor.Services
 {
-    public class LoadService
+    public class LoadService : ILoadService
     {
         private readonly AppDbContext _context;
         public LoadService(AppDbContext dbContext)
@@ -20,6 +22,12 @@ namespace PowerPredictor.Services
             _context.Loads.Add(load);
             await _context.SaveChangesAsync();
             return load;
+        }
+        public async Task AddLoadsAsync(IEnumerable<Load> loads)
+        {
+            _context.Loads.AddRange(loads);
+            await _context.SaveChangesAsync();
+            return;
         }
         public async Task<Load> UpdateLoadAsync(Load load)
         {
@@ -37,6 +45,55 @@ namespace PowerPredictor.Services
             _context.Loads.Remove(load);
             await _context.SaveChangesAsync();
             return load;
+        }
+
+        public async Task<IEnumerable<Load>> DownloadLoadsAsync(DateOnly start, DateOnly stop)
+        {
+            string baseURL = "https://www.wnp.pl/energetyka/notowania/zapotrzebowanie_mocy_kse/?d=";
+            var web = new HtmlWeb();
+            IEnumerable<Load> loads = new List<Load>();
+            for (DateOnly currentDate = start; currentDate <= stop; currentDate = currentDate.AddDays(1))
+            {
+                string url = baseURL + currentDate.ToString("yyyy-MM-dd");
+                var doc = web.Load(url);
+                var table = doc.DocumentNode.SelectNodes("//tbody")[1];
+
+                if (table != null)
+                {
+                    foreach (HtmlNode row in table.SelectNodes("tr"))
+                    {
+                        HtmlNodeCollection cells = row.SelectNodes("td");
+                        TimeOnly time = new TimeOnly();
+                        DateTime dateTime = new DateTime();
+                        if (cells[0].InnerText == "24:00")
+                        {
+                            time = TimeOnly.Parse("00:00");
+                            dateTime = currentDate.ToDateTime(time).AddDays(1);
+                        }
+                        else
+                        {
+                            time = TimeOnly.Parse(cells[0].InnerText);
+                            dateTime = currentDate.ToDateTime(time);
+                        }
+
+                        string pseForecastString = cells[1].InnerText.Replace("&nbsp;", "").Replace(",", ".");
+                        string realLoadString = cells[2].InnerText.Replace("&nbsp;", "").Replace(",", ".");
+                        float pseForecast = float.Parse(pseForecastString, CultureInfo.InvariantCulture);
+                        float realLoad = float.Parse(realLoadString, CultureInfo.InvariantCulture);
+
+                        Load load = new Load
+                        {
+                            Date = dateTime,
+                            ActualTotalLoad = realLoad,
+                            PSEForecastedTotalLoad = pseForecast
+                        };
+                        loads.Append(load);
+                        _context.Loads.Add(load);
+                    }
+                }
+                await _context.SaveChangesAsync();
+            } 
+            return loads;
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿@if (IsLoading)
 {
-    <button type="submit" class="btn btn-primary shadow @(FullWidth ? "d-block w-100" : string.Empty)" disabled>
+    <button type="@Type" class="btn btn-primary shadow @(FullWidth ? "d-block w-100" : string.Empty)" disabled>
         <span class="spinner-border spinner-border-sm"></span>
         @ChildContent
     </button>
 }
 else
 {
-    <button type="submit" class="btn btn-primary shadow @(FullWidth ? "d-block w-100" : string.Empty)">
+    <button type="@Type" class="btn btn-primary shadow @(FullWidth ? "d-block w-100" : string.Empty)">
         @ChildContent
     </button>
 }
@@ -21,4 +21,7 @@ else
 
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string? Type { get; set; } = "submit";
 }

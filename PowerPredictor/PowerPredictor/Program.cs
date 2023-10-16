@@ -15,8 +15,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddScoped<LoadService>();
+builder.Services.AddScoped<ILoadService, LoadService>();
+builder.Services.AddBlazorBootstrap();
 
 var emailSettings = builder.Configuration.GetSection("EmailSettings")
     ?? throw new NullReferenceException("No email settings found in config file");

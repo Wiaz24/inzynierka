@@ -1,5 +1,4 @@
 ﻿@page "/"  
-@inject LoadService loadService;
 
 <PageTitle>Power Predictor</PageTitle>
 
@@ -8,27 +7,3 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
-
-<EditForm Model="@load" OnValidSubmit="HandleValidSubmit">
-    <label for="ActLoad">Actual Load</label>
-    <InputNumber id="ActLoad" @bind-Value="load.ActualTotalLoad" />
-
-    <label for="PSEForecast">PSEForecast</label>
-    <InputNumber id="PSEForecast" @bind-Value="load.PSEForecastedTotalLoad" />
-
-    <label for="PPForecast">PPForecast</label>
-    <InputNumber id="PPForecast" @bind-Value="load.PPForecastedTotalLoad" />
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</EditForm>
-
-@code{
-    Load load = new Load();
-
-    public async void HandleValidSubmit(EditContext editContext)
-    {
-        var newLoad = (Load)editContext.Model;
-        newLoad.Date = DateTime.Now;
-        await loadService.AddLoadAsync(newLoad);
-    }
-}
