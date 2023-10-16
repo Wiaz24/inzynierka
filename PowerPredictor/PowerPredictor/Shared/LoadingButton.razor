@@ -1,0 +1,24 @@
+﻿@if (IsLoading)
+{
+    <button type="submit" class="btn btn-primary shadow @(FullWidth ? "d-block w-100" : string.Empty)" disabled>
+        <span class="spinner-border spinner-border-sm"></span>
+        @ChildContent
+    </button>
+}
+else
+{
+    <button type="submit" class="btn btn-primary shadow @(FullWidth ? "d-block w-100" : string.Empty)">
+        @ChildContent
+    </button>
+}
+
+@code {
+    [Parameter]
+    public bool IsLoading { get; set; } = false;
+
+    [Parameter]
+    public bool FullWidth { get; set; } = true;
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

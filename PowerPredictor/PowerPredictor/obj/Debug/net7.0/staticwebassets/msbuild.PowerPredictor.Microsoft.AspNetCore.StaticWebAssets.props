@@ -32,6 +32,198 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\bootstrap\bootstrap.min.css.map))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\OFL.txt))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/OFL.txt</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\OFL.txt))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\Onest-VariableFont_wght.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/Onest-VariableFont_wght.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\Onest-VariableFont_wght.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\README.txt))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/README.txt</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\README.txt))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Black.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-Black.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Black.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Bold.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-Bold.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Bold.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-ExtraBold.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-ExtraBold.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-ExtraBold.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-ExtraLight.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-ExtraLight.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-ExtraLight.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Light.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-Light.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Light.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Medium.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-Medium.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Medium.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Regular.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-Regular.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Regular.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-SemiBold.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-SemiBold.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-SemiBold.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Thin.ttf))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>css/fonts/static/Onest-Thin.ttf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\fonts\static\Onest-Thin.ttf))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\open-iconic\FONT-LICENSE))">
       <SourceType>Package</SourceType>
       <SourceId>PowerPredictor</SourceId>
@@ -207,6 +399,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\favicon.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\pp-transparent.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>PowerPredictor</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PowerPredictor</BasePath>
+      <RelativePath>images/pp-transparent.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\pp-transparent.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\pplogo-transparent.png))">
       <SourceType>Package</SourceType>

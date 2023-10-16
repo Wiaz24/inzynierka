@@ -13,6 +13,54 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\OFL.txt",
+      "PackagePath": "staticwebassets\\css\\fonts\\OFL.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\Onest-VariableFont_wght.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\Onest-VariableFont_wght.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\README.txt",
+      "PackagePath": "staticwebassets\\css\\fonts\\README.txt"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Black.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Black.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Bold.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Bold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-ExtraBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-ExtraLight.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Light.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Light.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Medium.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Medium.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Regular.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-SemiBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Thin.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Thin.ttf"
+    },
+    {
       "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
@@ -55,6 +103,10 @@
     {
       "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pp-transparent.png",
+      "PackagePath": "staticwebassets\\images\\pp-transparent.png"
     },
     {
       "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",

@@ -1,7 +1,30 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+@font-face {
+    font-family: 'Onest';
+    src: url('fonts/Onest-VariableFont_wght.ttf') format('truetype')
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: rgb(26, 26, 26);
+    font-family: 'Onest';
+}
+
+#NotFoundMessage {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.oi {
+    font-size: 25px;
+}
+
+.card {
+    background-color: transparent;
+    color: white;
+    border: 0px;
 }
 
 h1:focus {
@@ -13,13 +36,41 @@ a, .btn-link {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-image: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    border: none;
+    /*margin: 10px;*/
+    /*padding: 15px 45px;*/
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    /*box-shadow: 0 0 2px #eee;*/
+    border-radius: 10px;
+    /*display: block;*/
+}
+    .btn-primary:active {
+        box-shadow: none; /* Usuniêcie poœwiaty */
+        /* Opcjonalnie, mo¿esz zmieniæ kolor poœwiaty na dowolny inny */
+        outline-color: red;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+
+.form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 10px 0.1rem orange;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn:focus {
+    box-shadow: none;
+}
+.btn:active:focus {
+    box-shadow: 0 0 10px 0.1rem orange;
 }
 
 .content {
@@ -66,3 +117,32 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.form-floating {
+    width: 400px;
+    text-align: left;
+    color: black;
+}
+
+.alert {
+    width: 400px;
+}
+
+.form-check {
+    text-align: left;
+    padding-left: 2px;
+}
+
+.btn-link {
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+    .btn-link:hover {
+        color: white; /* Kolor tekstu po najechaniu myszk¹ */
+    }
+
+#RememberMe {
+    accent-color: orange;
+}

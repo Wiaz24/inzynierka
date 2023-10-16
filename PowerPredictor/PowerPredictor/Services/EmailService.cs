@@ -57,6 +57,7 @@ namespace PowerPredictor.Services
 
         public void SendVerifyAccountEmail(string email, string callbackUrl)
         {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(options.SenderMail);
             mailMessage.To.Add(new MailAddress(email));

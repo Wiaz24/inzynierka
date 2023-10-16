@@ -1,0 +1,108 @@
+﻿@page "/account/login"
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject NavigationManager NavigationManager
+
+<PageTitle>Login</PageTitle>
+
+<FormCard Title="Login">
+    <EditForm Model="loginModel" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="form-floating mb-2">
+            <InputText id="InputEmail" class="form-control" aria-required="true" placeholder="" 
+            @bind-Value="loginModel.Email" @onfocusin=@(() => alert = false) />
+                <label for="InputEmail" class="form-label">Email</label>
+            <ValidationMessage For="() => loginModel.Email" />
+        </div>
+
+        <div class="form-floating mb-2">
+            <InputText id="InputPassword" type="password" class="form-control" aria-required="true" placeholder=""
+            @bind-Value="loginModel.Password" @onfocusin=@(() => alert = false) />
+                <label for="InputPassword" class="form-label">Password</label>
+            <ValidationMessage For="() => loginModel.Password" />
+        </div>
+
+        <div class="form-check mb-2">
+            <InputCheckbox id="RememberMe" @bind-Value="loginModel.RememberMe" />
+            <label for="RememberMe" class="form-label">Remember me</label>
+        </div>
+
+        <LoadingButton IsLoading="isLoading" FullWidth="true">
+            Login
+        </LoadingButton>
+        <button class="btn btn-link" type="button" @onclick="NavigateToForgotPassword">
+            Forgot password?
+        </button>
+        @if (alert)
+        {
+            <div class="alert alert-warning" role="alert">
+                @alertMessage
+            </div>
+        }
+    </EditForm>
+</FormCard>
+
+@code {
+    public LoginModel loginModel = new LoginModel();
+
+    public bool alert = false;
+    public string alertMessage = "";
+    public bool isLoading = false;
+
+    public class LoginModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = null!;
+
+        [Required]
+        [DataType(DataType.Password)]
+        [ValidatePassword]
+        public string Password { get; set; } = null!;
+
+        public bool RememberMe { get; set; }
+    }
+
+    private void NavigateToForgotPassword()
+    {
+        NavigationManager.NavigateTo("/account/forgotpassword");
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        isLoading = true;
+        var user = await UserManager.FindByEmailAsync(loginModel.Email);
+        if (user == null)   //invalid email
+        {
+            alert = true;
+            alertMessage = "Incorrect credentials";
+        }
+        else if (await SignInManager.CanSignInAsync(user))  //user can log in
+        {
+            var result = await SignInManager.CheckPasswordSignInAsync(user, loginModel.Password, true);
+
+            if (result.Succeeded)   //correct credentials
+            {
+                Guid key = Guid.NewGuid();
+                BlazorCookieLoginMiddleware.Logins[key] = new LoginInfo {   Email = loginModel.Email, 
+                                                                            Password = loginModel.Password, 
+                                                                            RememberMe = loginModel.RememberMe};
+                NavigationManager.NavigateTo($"/account/login?key={key}", true);
+            }
+            else   //incorrect credentials
+            {
+                alert = true;
+                alertMessage = "Incorrect credentials";
+            }
+        }
+        else
+        {
+            alert = true;
+            alertMessage = "Your account is blocked";
+        }
+        isLoading = false;
+        await InvokeAsync(StateHasChanged);
+    }
+}

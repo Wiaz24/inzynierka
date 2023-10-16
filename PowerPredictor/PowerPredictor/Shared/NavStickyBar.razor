@@ -1,0 +1,47 @@
+﻿@inject NavigationManager NavigationManager
+<nav class="navbar navbar-expand-md navbar-dark bg-transparent sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex" href="/">
+            <img src="/images/pp-transparent.png" alt="Avatar Logo" style="width:200px;">
+        </a>
+
+        <button class="navbar-toggler" type="button" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="@NavMenuCssClass navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item mx-md-5">
+                    <a class="nav-link" href="javascript:void(0)">Link</a>
+                </li>
+                <li class="nav-item mx-md-5">
+                    <a class="nav-link" href="javascript:void(0)">Link</a>
+                </li>
+                <li class="nav-item mx-md-5">
+                    <a class="nav-link" href="javascript:void(0)">Link</a>
+                </li>
+            </ul>
+            <AuthorizeView>
+                <Authorized>
+                    <button class="btn btn-primary me-2" type="button" @onclick=@(() => NavigationManager.NavigateTo("account"))>Account</button>
+                    <button class="btn btn-primary me-2" type="button" @onclick=@(() => NavigationManager.NavigateTo("account/logout", true))>Logout</button>
+                </Authorized>
+                <NotAuthorized>
+                    <button class="btn btn-primary me-2" type="button" @onclick=@(() => NavigationManager.NavigateTo("account/login"))>Login</button>
+                    <button class="btn btn-primary me-2" type="button" @onclick=@(() => NavigationManager.NavigateTo("account/register"))>Register</button>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

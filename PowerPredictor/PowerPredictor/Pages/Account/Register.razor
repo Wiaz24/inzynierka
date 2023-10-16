@@ -1,0 +1,135 @@
+﻿@page "/account/register"
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject NavigationManager NavigationManager
+@inject IEmailService EmailService
+
+<PageTitle>Register</PageTitle>
+
+<FormCard Title="Register">
+    
+    <EditForm Model="registerModel" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="form-floating mb-2">
+            <InputText id="InputEmail" class="form-control" aria-required="true" placeholder="" @bind-Value="registerModel.Email" />
+            <label for="InputEmail" class="form-label">Email</label>
+            <ValidationMessage For="() => registerModel.Email" />
+        </div>
+
+        <div class="form-floating mb-2">
+            <InputText id="InputPassword" type="password" class="form-control" aria-required="true" placeholder="" @bind-Value="registerModel.Password" />
+            <label for="InputPassword" class="form-label">Password</label>
+            <ValidationMessage For="() => registerModel.Password" />
+        </div>
+
+        <div class="form-floating mb-4">
+            <InputText id="InputConfirmPassword" type="password" class="form-control" aria-required="true" placeholder="" @bind-Value="registerModel.ConfirmPassword" />
+            <label for="InputConfirmPassword" class="form-label">Confirm password</label>
+            <ValidationMessage For="() => registerModel.ConfirmPassword" />
+        </div>
+
+        <LoadingButton IsLoading="isLoading" FullWidth="true">
+            Create new account
+        </LoadingButton>
+        @if (error)
+        {
+            <div class="alert alert-danger mt-4">
+                <strong>@errorMessage</strong>
+            </div>
+        }
+        @if (emailSent)
+        {
+            <div class="alert alert-success mt-4">
+                Verification email has been sent. Go to your email service and confirm account
+            </div>
+        }
+    </EditForm>
+</FormCard>
+
+@code {
+
+    public RegisterModel registerModel = new RegisterModel();
+
+    public class RegisterModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = null!;
+
+        [Required]
+        [ValidatePassword]
+        public string Password { get; set; } = null!;
+
+        [Required]
+        [Compare(nameof(Password), ErrorMessage = "Provided passwords are not the same")]
+        public string ConfirmPassword { get; set; } = null!;
+    }
+
+    private bool error = false;
+    private string errorMessage = "";
+
+    private bool isLoading = false;
+    private bool emailSent = false;
+
+    private async Task<string> GenerateEncodedTokenAsync(User user)
+    {
+        var token = await UserManager.GenerateEmailConfirmationTokenAsync(user);
+
+        //encoding token to Base64 for safety and removing nonalphanumeric characters
+        var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
+
+        var link = NavigationManager.ToAbsoluteUri($"/account/confirm-account/{user.Id}/{encodedToken}");
+        return link.ToString();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        emailSent = false;
+        error = false;
+        isLoading = true;
+
+        var newUser = new User
+        {
+            Email = registerModel.Email,
+            PhoneNumberConfirmed = false,
+            TwoFactorEnabled = false,
+            LockoutEnabled = true,
+            UserName = registerModel.Email
+        };
+
+        var result = await UserManager.CreateAsync(newUser, registerModel.Password);
+
+        if (result.Succeeded)
+        {
+            await UserManager.AddToRoleAsync(newUser, "StdUser");
+
+            var link = await GenerateEncodedTokenAsync(newUser);
+            EmailService.SendVerifyAccountEmail(newUser.Email, link.ToString());
+            emailSent = true;
+        }
+        else if (result.Errors.FirstOrDefault()?.Code == "DuplicateUserName")
+        {
+            var existingUser = await UserManager.FindByEmailAsync(newUser.Email);
+            if (existingUser.EmailConfirmed == false)
+            {
+                string link = await GenerateEncodedTokenAsync(newUser);
+                EmailService.SendVerifyAccountEmail(newUser.Email, link);
+                emailSent = true;
+            }
+            else
+            {
+                errorMessage = "User already exist";
+                error = true;
+            }
+        }
+        else
+        {
+            errorMessage = result.Errors.First().Description;
+            error = true;
+        }
+        isLoading = false;
+        await InvokeAsync(StateHasChanged);
+    }
+}

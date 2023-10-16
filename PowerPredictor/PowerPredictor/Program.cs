@@ -8,7 +8,6 @@ using PowerPredictor.Models;
 using PowerPredictor.Services;
 using PowerPredictor.Services.Interfaces;
 using System.Configuration;
-
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new NullReferenceException("No connection string found in config file");
@@ -38,7 +37,40 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+{
+    options.TokenLifespan = TimeSpan.FromHours(1); // Ustaw czas wa¿noœci na 1 godzinê
+});
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+    var roles = new[] { "StdUser", "Admin" };
+
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
+    try
+    {
+        // Get an instance of your context class and run any pending migrations
+        var context = services.GetRequiredService<AppDbContext>();
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        // Log any exceptions that occur during startup
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while migrating the database.");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -56,6 +88,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<BlazorCookieLoginMiddleware>();
+app.UseMiddleware<LogoutMiddleware>();
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

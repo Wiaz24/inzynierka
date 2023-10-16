@@ -22,7 +22,6 @@ C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\scopedcss\bundle\PowerPredictor.styles.css
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\scopedcss\projectbundle\PowerPredictor.bundle.scp.css
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\PowerPredictor.dll
@@ -263,3 +262,4 @@ C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\scopedcss\Shared\DismissableAlert.razor.rz.scp.css

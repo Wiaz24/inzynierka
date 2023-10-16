@@ -1,0 +1,59 @@
+﻿@page "/account/confirm-account/{userId}/{encryptedToken}"
+@inject UserManager<User> UserManager
+@inject NavigationManager NavigationManager
+
+<PageTitle>Confirm account</PageTitle>
+
+<FormCard Title="" >
+    @if (confirmed)
+    {
+        <div class="alert alert-success">
+            <strong>Your account has been confirmed</strong>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            <strong>Your token has expired</strong>
+        </div>
+    }
+    <button class="btn btn-primary" @onclick="NavigateToLogin">
+        Login
+    </button>
+</FormCard>
+
+
+@code {
+    [Parameter]
+    public string userId { get; set; } = null!;
+
+    [Parameter]
+    public string encryptedToken { get; set; } = null!;
+
+    private bool confirmed = false;
+
+    private void NavigateToLogin()
+    {
+        NavigationManager.NavigateTo("/account/login");
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var user = await UserManager.FindByIdAsync(userId);
+
+        if (user == null)
+        {
+            NavigationManager.NavigateTo("/");
+            return;
+        }
+
+        var token = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(encryptedToken));
+
+        var result = await UserManager.ConfirmEmailAsync(user, token);
+        if (result.Succeeded)
+            confirmed = true;
+        else
+            confirmed = false;
+    }
+}
