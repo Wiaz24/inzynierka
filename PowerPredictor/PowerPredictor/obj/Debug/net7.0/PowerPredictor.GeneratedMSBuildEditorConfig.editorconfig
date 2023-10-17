@@ -9,89 +9,97 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PowerPredictor
 build_property.RootNamespace = PowerPredictor
-build_property.ProjectDir = C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\
+build_property.ProjectDir = C:\Users\Ja\Desktop\inzynierka\PowerPredictor\PowerPredictor\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor
+build_property.MSBuildProjectDirectory = C:\Users\Ja\Desktop\inzynierka\PowerPredictor\PowerPredictor
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/App.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Account.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Account.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxBY2NvdW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/ConfirmAccount.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/ConfirmAccount.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxDb25maXJtQWNjb3VudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/ForgotPassword.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/ForgotPassword.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Login.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Logout.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Logout.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Register.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/ResetPassword.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/ResetPassword.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/AdminPanel.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/AdminPanel.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYW5lbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Index.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Predictor.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Predictor.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJlZGljdG9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Shared/FormCard.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Shared/FormCard.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvcm1DYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Shared/LoadingButton.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Shared/LoadingButton.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvYWRpbmdCdXR0b24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Shared/NavStickyBar.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Shared/NavStickyBar.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdlN0aWNreUJhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Shared/SurveyPrompt.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/_Imports.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Shared/DismissableAlert.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Admin/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-fdwp4q72dl
+
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Shared/DismissableAlert.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc21pc3NhYmxlQWxlcnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-yhqe5bjivs
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Shared/MainLayout.razor]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-jc8aipk27n
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/Error.cshtml]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/praca inżynierska/inzynierka/PowerPredictor/PowerPredictor/Pages/_Host.cshtml]
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

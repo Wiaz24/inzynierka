@@ -1,5 +1,9 @@
 @import '_content/Blazor.Bootstrap/Blazor.Bootstrap.bundle.scp.css';
 
+/* _content/PowerPredictor/Pages/Admin/Users.razor.rz.scp.css */
+#Content[b-fdwp4q72dl] {
+    color: white;
+}
 /* _content/PowerPredictor/Shared/DismissableAlert.razor.rz.scp.css */
 #DismissableAlertContainer[b-yhqe5bjivs] {
     width: inherit;

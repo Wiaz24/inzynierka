@@ -1,0 +1,98 @@
+﻿@page "/admin/users"
+@inject UserManager<User> userManager
+@inject ToastService ToastService
+
+<ConfirmDialog @ref="dialog" />
+
+<div id="Content">
+    <Grid TItem="User"
+        @ref="grid"
+      Class="table table-hover table-bordered table-striped table-dark"
+      Data="users"
+      AllowPaging="true"
+      AllowFiltering="false"
+      AllowSorting="true"
+      PageSize="10"
+      PaginationItemsTextFormat="Items {0} - {1} of {2}"
+      ItemsPerPageText="no"
+      PageSizeSelectorVisible="false"
+      PageSizeSelectorItems="@(new int[] { 5,10,20 })"
+      Responsive="true">
+
+    <GridColumn TItem="User" HeaderText="Id" SortString="Id" SortKeySelector="item => item.Id">
+        @context.Id
+    </GridColumn>
+
+    <GridColumn TItem="User" HeaderText="Email" SortString="Email" SortKeySelector="item => item.Email"> 
+        @context.Email
+    </GridColumn>
+
+    <GridColumn TItem="User" HeaderText="Is confirmed" SortKeySelector="item => item.EmailConfirmed">
+        @context.EmailConfirmed
+    </GridColumn>
+
+    <GridColumn TItem="User" HeaderText="Edit" PropertyName="Edit" Sortable="false" TextAlignment="Alignment.Center" HeaderTextAlignment="Alignment.Center"> 
+      <ChildContent>
+        <Button Class="btn btn-secondary" @onclick="() => EditUser(context.Id)">Edit</Button>
+      </ChildContent>
+    </GridColumn>
+
+    <GridColumn TItem="User" HeaderText="Delete" PropertyName="Delete" Sortable="false" TextAlignment="Alignment.Center" HeaderTextAlignment="Alignment.Center">
+        <ChildContent>
+            <Button Color="ButtonColor.Danger" @onclick="() => DeleteUser(context)"> Delete </Button>
+      </ChildContent>
+    </GridColumn>
+    </Grid>
+</div>
+
+
+@code {
+        Grid<User> grid;
+
+    private List<User> users = default!;
+
+    protected override async void OnInitialized()
+    {
+        var usr = await userManager.FindByEmailAsync("StdUser");
+        users = new List<User> { usr };
+        //users = await userManager.GetUsersInRoleAsync("StdUser");
+    }
+
+    private ConfirmDialog dialog = default!;
+
+    private async Task DeleteUser(User context)
+    {
+        var confirmation = await dialog.ShowAsync(
+            title: "Are you sure you want to delete this user?",
+            message1: "Email: " + context.Email,
+            message2: "Do you want to proceed?");
+
+        
+
+        if (confirmation)
+        {
+            await userManager.DeleteAsync(context);
+            users.Remove(context);
+            await grid.RefreshDataAsync();
+            var message = new ToastMessage
+            {
+                Type = ToastType.Success,
+                Title = "Success",
+                HelpText = $"{DateTime.Now}",
+                Message = $"User {context.Email} has been deleted successfully",
+            };
+            ToastService.Notify(message);
+        }
+  
+    }
+
+    private void EditUser(string id)
+    {
+        //NavigationManager.NavigateTo($"/admin/edituser/{id}");
+    }
+
+    private void DeleteUser(string id)
+    {
+        //NavigationManager.NavigateTo($"/admin/deleteuser/{id}");
+    }
+}

@@ -4,3 +4,9 @@ C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPr
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.sqlproj.AssemblyReference.cache
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.dll
 C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.pdb
+C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\bin\Debug\DatabasePowerPredictor.dacpac
+C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\bin\Debug\DatabasePowerPredictor.dll
+C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\bin\Debug\DatabasePowerPredictor.pdb
+C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.sqlproj.AssemblyReference.cache
+C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.dll
+C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.pdb

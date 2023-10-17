@@ -2,26 +2,41 @@
 @inject ILoadService loadService
 @*@attribute [Authorize(Roles = "Admin")]*@
 
-@if (isLoading)
-{
-    <button class="btn btn-primary" disabled>
-        <span class="spinner-border spinner-border-sm"></span>
-        Updating Database...
-    </button>
-}
-else
-{
-    <button class="btn btn-primary shadow" @onclick="UpdateDatabase">
-        Update Database
-    </button>
-}
+<FormCard Title="Update database">
+    <EditForm Model="dateRange" OnValidSubmit="UpdateDatabase">
+        <DataAnnotationsValidator />
+            <div class="form-group mb-2">
+                <label for="StartDate">Start Date</label>
+                <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
+                <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
+            </div>
+            <div class="form-group mb-2">
+                <label for="EndDate">End Date</label>
+                <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
+                <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
+            </div>
+            <LoadingButton IsLoading="isLoading">
+                Update database
+            </LoadingButton>
+    </EditForm>
+</FormCard>
+
 
 @code {
+    public class DateRange
+    {
+        [Required]
+        public DateOnly StartDate { get; set; }
+
+        [Required]
+        public DateOnly EndDate { get; set; }
+    }
+    DateRange dateRange = new DateRange();
     private bool isLoading = false;
     private async Task UpdateDatabase()
     {
         isLoading = true;
-        await loadService.DownloadLoadsAsync(new DateOnly(2023, 10, 1), new DateOnly(2023, 10, 15));
+        await loadService.DownloadLoadsAsync(dateRange.StartDate, dateRange.EndDate);
         isLoading = false;
     }
 }
