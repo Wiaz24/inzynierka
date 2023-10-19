@@ -46,6 +46,31 @@ namespace PowerPredictor.Services
             await _context.SaveChangesAsync();
             return load;
         }
+        public async Task<Load?> GetEarliestData()
+        {
+            var load = await _context.Loads.OrderBy(l => l.Date).FirstOrDefaultAsync();
+            return load;
+        }
+
+        public async Task<Load?> GetLatestData()
+        {
+            var load = await _context.Loads.OrderByDescending(l => l.Date).FirstOrDefaultAsync();
+            return load;
+        }
+
+        public async Task<int> GetNumberOfLoads()
+        {
+            return await _context.Loads.CountAsync();
+        }
+
+        public async Task<int> GetNumberOfPredictions()
+        {
+            int count = await _context.Loads
+                .Where(load => load.PPForecastedTotalLoad != null)
+                .CountAsync();
+
+            return count;
+        }
 
         public async Task<IEnumerable<Load>> DownloadLoadsAsync(DateOnly start, DateOnly stop)
         {

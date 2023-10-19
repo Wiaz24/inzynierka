@@ -11,6 +11,6 @@ namespace PowerPredictor.Models
         public DateTime Date { get; set; }
         public float ActualTotalLoad { get; set; }
         public float PSEForecastedTotalLoad { get; set; }
-        public float PPForecastedTotalLoad { get; set; }
+        public float? PPForecastedTotalLoad { get; set; }
     }
 }

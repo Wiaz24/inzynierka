@@ -533,3 +533,4 @@ C:\Users\Ja\Desktop\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\Po
 C:\Users\Ja\Desktop\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\PowerPredictor.genruntimeconfig.cache
 C:\Users\Ja\Desktop\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\ref\PowerPredictor.dll
 C:\Users\Ja\Desktop\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\scopedcss\Pages\Admin\Users.razor.rz.scp.css
+C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\PowerPredictor\obj\Debug\net7.0\scopedcss\Pages\Admin\Users.razor.rz.scp.css

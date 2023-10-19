@@ -1,0 +1,42 @@
+﻿@inject UserManager<User> UserManager
+
+<EditForm Model="user" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="form-floating mb-2">
+        <InputText id="InputEmail" class="form-control" aria-required="true" placeholder="" @bind-Value="user.Email" />
+        <label for="InputEmail" class="form-label">Email</label>
+        <ValidationMessage For="() => user.Email" />
+    </div>
+
+    <div class="form-check mb-2">
+        <InputCheckbox id="IsConfirmed" @bind-Value="user.EmailConfirmed" />
+        <label for="IsConfirmed" class="form-label">Is confirmed?</label>
+    </div>
+
+    <LoadingButton IsLoading="isLoading" FullWidth="true">
+        @buttonMessage
+    </LoadingButton>
+</EditForm>
+
+@code {
+    [Parameter]
+    public User user { get; set; } = default!;
+
+    private bool isLoading = false;
+    private string buttonMessage = "Save changes";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    private async void HandleValidSubmit()
+    {
+        isLoading = true;
+        await UserManager.UpdateAsync(user);
+        buttonMessage = "Changes saved";
+        isLoading = false;
+        await InvokeAsync(StateHasChanged);
+    }
+}

@@ -11,5 +11,9 @@ namespace PowerPredictor.Services.Interfaces
         Task<Load> UpdateLoadAsync(Load load);
         Task<Load?> DeleteLoadAsync(int id);
         Task<IEnumerable<Load>> DownloadLoadsAsync(DateOnly start, DateOnly stop);
+        Task<Load?> GetEarliestData();
+        Task<Load?> GetLatestData();
+        Task<int> GetNumberOfLoads();
+        Task<int> GetNumberOfPredictions();
     }
 }

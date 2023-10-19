@@ -7,7 +7,7 @@
 
 <PageTitle>Register</PageTitle>
 
-<FormCard Title="Register">
+<FormCard Title="Register" Width="500px">
     
     <EditForm Model="registerModel" OnValidSubmit="HandleValidSubmit">
         <DataAnnotationsValidator />
@@ -33,22 +33,25 @@
         <LoadingButton IsLoading="isLoading" FullWidth="true">
             Create new account
         </LoadingButton>
-        @if (error)
+        @if (alert)
         {
-            <div class="alert alert-danger mt-4">
-                <strong>@errorMessage</strong>
-            </div>
+            <Alert Color="@alertColor" Dismissable="false" Style="text-align: left;" Class="mt-3">
+                <Icon Name="@alertIcon" class="me-2"></Icon>
+                @alertMessage
+            </Alert>
         }
-        @if (emailSent)
-        {
-            <div class="alert alert-success mt-4">
-                Verification email has been sent. Go to your email service and confirm account
-            </div>
-        }
+
     </EditForm>
 </FormCard>
 
 @code {
+
+    public bool alert = false;
+    public string alertMessage = "";
+    public AlertColor alertColor = AlertColor.Danger;
+    public IconName alertIcon = IconName.ExclamationTriangleFill;
+
+    private bool isLoading = false;
 
     public RegisterModel registerModel = new RegisterModel();
 
@@ -67,12 +70,6 @@
         public string ConfirmPassword { get; set; } = null!;
     }
 
-    private bool error = false;
-    private string errorMessage = "";
-
-    private bool isLoading = false;
-    private bool emailSent = false;
-
     private async Task<string> GenerateEncodedTokenAsync(User user)
     {
         var token = await UserManager.GenerateEmailConfirmationTokenAsync(user);
@@ -86,8 +83,7 @@
 
     private async Task HandleValidSubmit()
     {
-        emailSent = false;
-        error = false;
+        alert = false;
         isLoading = true;
 
         var newUser = new User
@@ -107,7 +103,11 @@
 
             var link = await GenerateEncodedTokenAsync(newUser);
             EmailService.SendVerifyAccountEmail(newUser.Email, link.ToString());
-            emailSent = true;
+
+            alertColor = AlertColor.Success;
+            alertIcon = IconName.InfoCircleFill;
+            alertMessage = "Verification email has been sent. Go to your email service and confirm account";
+            alert = true;
         }
         else if (result.Errors.FirstOrDefault()?.Code == "DuplicateUserName")
         {
@@ -116,18 +116,26 @@
             {
                 string link = await GenerateEncodedTokenAsync(newUser);
                 EmailService.SendVerifyAccountEmail(newUser.Email, link);
-                emailSent = true;
+
+                alertColor = AlertColor.Success;
+                alertIcon = IconName.InfoCircleFill;
+                alertMessage = "Verification email has been sent. Go to your email service and confirm account";
+                alert = true;
             }
             else
             {
-                errorMessage = "User already exist";
-                error = true;
+                alertColor = AlertColor.Warning;
+                alertIcon = IconName.ExclamationTriangleFill;
+                alertMessage = "User already exist";
+                alert = true;
             }
         }
         else
         {
-            errorMessage = result.Errors.First().Description;
-            error = true;
+            alertColor = AlertColor.Warning;
+            alertIcon = IconName.ExclamationTriangleFill;
+            alertMessage = result.Errors.First().Description;
+            alert = true;
         }
         isLoading = false;
         await InvokeAsync(StateHasChanged);

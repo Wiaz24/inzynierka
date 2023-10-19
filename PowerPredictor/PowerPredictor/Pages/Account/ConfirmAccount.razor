@@ -4,20 +4,15 @@
 
 <PageTitle>Confirm account</PageTitle>
 
-<FormCard Title="" >
-    @if (confirmed)
+<FormCard Title="" Width="400px">
+    @if (alert)
     {
-        <div class="alert alert-success">
-            <strong>Your account has been confirmed</strong>
-        </div>
+        <Alert Color="@alertColor" Dismissable="false" Style="text-align: left;" Class="mt-3">
+            <Icon Name="@alertIcon" class="me-2"></Icon>
+            @alertMessage
+        </Alert>
     }
-    else
-    {
-        <div class="alert alert-danger">
-            <strong>Your token has expired</strong>
-        </div>
-    }
-    <button class="btn btn-primary" @onclick="NavigateToLogin">
+    <button class="btn btn-primary d-block w-100" @onclick="NavigateToLogin">
         Login
     </button>
 </FormCard>
@@ -30,7 +25,10 @@
     [Parameter]
     public string encryptedToken { get; set; } = null!;
 
-    private bool confirmed = false;
+    public bool alert = false;
+    public string alertMessage = "";
+    public AlertColor alertColor = AlertColor.Danger;
+    public IconName alertIcon = IconName.ExclamationTriangleFill;
 
     private void NavigateToLogin()
     {
@@ -52,8 +50,18 @@
 
         var result = await UserManager.ConfirmEmailAsync(user, token);
         if (result.Succeeded)
-            confirmed = true;
+        {
+            alertMessage = "Your account has been confirmed. You can now log in.";
+            alertColor = AlertColor.Success;
+            alertIcon = IconName.CheckCircleFill;
+        }
         else
-            confirmed = false;
+        {
+            alertMessage = "Your token is invalid.";
+            alertColor = AlertColor.Danger;
+            alertIcon = IconName.ExclamationTriangleFill;
+        }
+        alert = true;
+        await InvokeAsync(StateHasChanged);
     }
 }

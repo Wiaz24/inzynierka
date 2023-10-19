@@ -4,20 +4,22 @@
 
 <ConfirmDialog @ref="dialog" />
 
+<Offcanvas @ref="offcanvas" />
+
 <div id="Content">
     <Grid TItem="User"
         @ref="grid"
-      Class="table table-hover table-bordered table-striped table-dark"
-      Data="users"
-      AllowPaging="true"
-      AllowFiltering="false"
-      AllowSorting="true"
-      PageSize="10"
-      PaginationItemsTextFormat="Items {0} - {1} of {2}"
-      ItemsPerPageText="no"
-      PageSizeSelectorVisible="false"
-      PageSizeSelectorItems="@(new int[] { 5,10,20 })"
-      Responsive="true">
+        Class="table table-hover table-bordered table-striped table-dark"
+        DataProvider="EmployeesDataProvider"
+        AllowPaging="true"
+        AllowFiltering="false"
+        AllowSorting="true"
+        PageSize="10"
+        PaginationItemsTextFormat="Items {0} - {1} of {2}"
+        ItemsPerPageText="no"
+        PageSizeSelectorVisible="false"
+        PageSizeSelectorItems="@(new int[] { 5,10,20 })"
+        Responsive="true">
 
     <GridColumn TItem="User" HeaderText="Id" SortString="Id" SortKeySelector="item => item.Id">
         @context.Id
@@ -32,9 +34,9 @@
     </GridColumn>
 
     <GridColumn TItem="User" HeaderText="Edit" PropertyName="Edit" Sortable="false" TextAlignment="Alignment.Center" HeaderTextAlignment="Alignment.Center"> 
-      <ChildContent>
-        <Button Class="btn btn-secondary" @onclick="() => EditUser(context.Id)">Edit</Button>
-      </ChildContent>
+        <ChildContent>
+            <Button Color="ButtonColor.Secondary" @onclick="() => EditUser(context)">Edit</Button>
+        </ChildContent>
     </GridColumn>
 
     <GridColumn TItem="User" HeaderText="Delete" PropertyName="Delete" Sortable="false" TextAlignment="Alignment.Center" HeaderTextAlignment="Alignment.Center">
@@ -47,18 +49,31 @@
 
 
 @code {
-        Grid<User> grid;
+    private Offcanvas offcanvas = default!;
+    private ConfirmDialog dialog = default!;
+    private Grid<User> grid = default!;
 
-    private List<User> users = default!;
+    private IEnumerable<User> users = default!;
 
-    protected override async void OnInitialized()
+    private bool edited = false;
+
+    private async Task OnHideOffcanvasClick()
     {
-        var usr = await userManager.FindByEmailAsync("StdUser");
-        users = new List<User> { usr };
-        //users = await userManager.GetUsersInRoleAsync("StdUser");
+        await offcanvas?.HideAsync();
+    }
+    private async Task<GridDataProviderResult<User>> EmployeesDataProvider(GridDataProviderRequest<User> request)
+    {
+        if (users is null || edited) // pull users only one time for client-side filtering, sorting, and paging
+            users = await userManager.GetUsersInRoleAsync("StdUser");
+
+        edited = false;
+        return await Task.FromResult(request.ApplyTo(users));
     }
 
-    private ConfirmDialog dialog = default!;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+    }
 
     private async Task DeleteUser(User context)
     {
@@ -67,12 +82,10 @@
             message1: "Email: " + context.Email,
             message2: "Do you want to proceed?");
 
-        
-
         if (confirmation)
         {
+            edited = true;
             await userManager.DeleteAsync(context);
-            users.Remove(context);
             await grid.RefreshDataAsync();
             var message = new ToastMessage
             {
@@ -83,16 +96,13 @@
             };
             ToastService.Notify(message);
         }
-  
     }
 
-    private void EditUser(string id)
+    private async Task EditUser(User context)
     {
-        //NavigationManager.NavigateTo($"/admin/edituser/{id}");
+        edited = true;
+        await offcanvas?.ShowAsync<UserEditForm>(title: "Edit user data", new Dictionary<string, object>() { { "user", context } });
+        await grid.RefreshDataAsync();
     }
 
-    private void DeleteUser(string id)
-    {
-        //NavigationManager.NavigateTo($"/admin/deleteuser/{id}");
-    }
 }

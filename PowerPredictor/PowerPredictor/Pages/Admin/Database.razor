@@ -1,0 +1,120 @@
+﻿@page "/admin/database"
+@inject ILoadService LoadService
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="d-flex justify-content-around align-items-stretch">
+            <div class="p-2 col-4">
+                <Card Class="mycard">
+                    <CardBody>
+                        <CardTitle>Manage users</CardTitle>
+                        <CardText>Delete, change permissions or edit informations</CardText>
+                        <Button Color="ButtonColor.Primary" To="/admin/users" Type="ButtonType.Link">Users</Button>
+                    </CardBody>
+                </Card>
+            </div>
+            <div class="p-2 col-8">
+                <Card Class="mycard">
+                    <CardBody>
+                        <CardTitle>Run web scratcher and update database</CardTitle>
+                        <EditForm Model="dateRange" OnValidSubmit="UpdateDatabase">
+                            <DataAnnotationsValidator />
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="StartDate">Start Date</label>
+                                        <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
+                                        <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="EndDate">End Date</label>
+                                        <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
+                                        <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <LoadingButton IsLoading="isLoading">
+                                Update database
+                            </LoadingButton>
+                        </EditForm>
+                    </CardBody>
+                </Card>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around align-items-stretch">
+            <div class="p-2 w-100">
+                <Card Class="mycard">
+                    <CardBody>
+                        <CardTitle>Load data completeness</CardTitle>
+                        <CardText>Minimal date: <span style="color: orange;">@earliestDate</span></CardText>
+                        <CardText>Maximal date: <span style="color: orange;">@latestDate</span></CardText>
+                        <CardText>Total number of entries: <span style="color: orange;">@numberOfEntries</span></CardText>
+
+                        <p>Scrapped data completeness</p>
+                        <Progress Class="mb-3">
+                            <ProgressBar Color="ProgressColor.Primary" Width="@scrappedDataCompleteness" Label="@(scrappedDataCompleteness + "%")" />
+                        </Progress>
+                        <p>Prediction completeness</p>
+                        <Progress Class="mb-3">
+                            <ProgressBar Color="ProgressColor.Primary" Width="@predictionCompletness" Label="@(predictionCompletness + "%")" />
+                        </Progress>
+                        <Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Go somewhere</Button>
+                    </CardBody>
+                </Card>
+            </div>
+        </div>
+    </div>   
+</div>
+
+
+@code {
+    public int scrappedDataCompleteness = 0;
+    public int predictionCompletness = 0;
+    DateTime? earliestDate = default!;
+    DateTime? latestDate = default!;
+    int numberOfEntries = 0;
+
+    public class DateRange
+    {
+        [Required]
+        public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+        [Required]
+        public DateOnly EndDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+    }
+    DateRange dateRange = new DateRange();
+    private bool isLoading = false;
+    private async Task UpdateDatabase()
+    {
+        isLoading = true;
+        await LoadService.DownloadLoadsAsync(dateRange.StartDate, dateRange.EndDate);
+        isLoading = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var start = await LoadService.GetEarliestData();
+        var end = await LoadService.GetLatestData();
+        earliestDate = start is null ? null : start.Date;
+        latestDate = start is null ? null : end.Date;
+
+        numberOfEntries = await LoadService.GetNumberOfLoads();
+
+        TimeSpan? timeSpan = (latestDate - earliestDate);
+        if (timeSpan.HasValue)
+            scrappedDataCompleteness = (int)(numberOfEntries / (timeSpan.Value.TotalHours + 1) * 100);
+        else
+            scrappedDataCompleteness = 0;
+
+        int numberOfPredictions = await LoadService.GetNumberOfPredictions();
+
+        if(numberOfEntries > 0)
+            predictionCompletness = (int)(numberOfPredictions * 100 / numberOfEntries);
+        else
+            predictionCompletness = 0;
+    }
+}

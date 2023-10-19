@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PowerPredictor;
@@ -7,7 +5,6 @@ using PowerPredictor.Data;
 using PowerPredictor.Models;
 using PowerPredictor.Services;
 using PowerPredictor.Services.Interfaces;
-using System.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new NullReferenceException("No connection string found in config file");

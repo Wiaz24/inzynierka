@@ -6,7 +6,7 @@
 
 <PageTitle>Login</PageTitle>
 
-<FormCard Title="Login">
+<FormCard Title="Login" Width="500px" >
     <EditForm Model="loginModel" OnValidSubmit="HandleValidSubmit">
         <DataAnnotationsValidator />
 
@@ -37,9 +37,10 @@
         </button>
         @if (alert)
         {
-            <div class="alert alert-warning" role="alert">
-                @alertMessage
-            </div>
+            <Alert Color="@alertColor" Dismissable="false" Style="text-align: left;" Class="mt-3">
+                <Icon Name="@alertIcon" class="me-2"></Icon>
+                @alertMessage 
+            </Alert>
         }
     </EditForm>
 </FormCard>
@@ -49,7 +50,11 @@
 
     public bool alert = false;
     public string alertMessage = "";
+    public AlertColor alertColor = AlertColor.Danger;
+    public IconName alertIcon = IconName.ExclamationTriangleFill;
+
     public bool isLoading = false;
+
 
     public class LoginModel
     {

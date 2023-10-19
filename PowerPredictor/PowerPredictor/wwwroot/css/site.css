@@ -119,13 +119,13 @@ a, .btn-link {
     }
 
 .form-floating {
-    width: 400px;
+    /*width: 400px;*/
     text-align: left;
     color: black;
 }
 
 .alert {
-    width: 400px;
+    /*width: 400px;*/
 }
 
 .form-check {
@@ -145,4 +145,10 @@ a, .btn-link {
 
 #RememberMe {
     accent-color: orange;
+}
+
+.mycard {
+    background-color: rgb(50,50,50);
+    height: 100%;
+    width: 100%;
 }
