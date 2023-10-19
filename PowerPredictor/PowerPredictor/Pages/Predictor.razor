@@ -2,10 +2,48 @@
 
 <PageTitle>Predictor</PageTitle>
 
+<div class="btn-group" role="group" aria-label="Basic example">
+    <Button Color="ButtonColor.Secondary">Today</Button>
+    <Button Color="ButtonColor.Secondary">This month</Button>
+    <Button Color="ButtonColor.Secondary">This year</Button>
+    <Dropdown>
+        <DropdownToggleButton Color="ButtonColor.Secondary">Select period</DropdownToggleButton>
+        <DropdownMenu Style="width: 200px;">
+            <div class="d-flex align-content-center justify-content-center">
+                <EditForm Model="dateRange" OnValidSubmit="UpdatePlot">
+                    <DataAnnotationsValidator />
+                    <div class="form-group mb-2">
+                        <label for="StartDate">Start Date</label>
+                        <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
+                        <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="EndDate">End Date</label>
+                        <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
+                        <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
+                    </div>
+                    <Button Class="w-100 d-block" Color="ButtonColor.Primary" Type="ButtonType.Submit">Show result</Button>
+                </EditForm>
+            </div>
+        </DropdownMenu>
+    </Dropdown>
+</div>
+
 <LineChart @ref="lineChart" />
 
 @code {
     private LineChart lineChart;
+    class DateRange
+    {
+        [Required]
+        [ValidateScrapperDate]
+        public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Now.AddDays(-1));
+
+        [Required]
+        [ValidateScrapperDate]
+        public DateOnly EndDate { get; set; } = DateOnly.FromDateTime(DateTime.Now.AddDays(-1));
+    }
+    DateRange dateRange = new DateRange();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -70,5 +108,11 @@
         options.Scales.Y.Title.Display = true;
 
         await lineChart.InitializeAsync(data, options);
+    }
+
+    private void UpdatePlot()
+    {
+        
+        InvokeAsync(StateHasChanged);
     }
 }

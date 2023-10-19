@@ -143,7 +143,7 @@ a, .btn-link {
         color: white; /* Kolor tekstu po najechaniu myszk¹ */
     }
 
-#RememberMe {
+.mycheckbox {
     accent-color: orange;
 }
 

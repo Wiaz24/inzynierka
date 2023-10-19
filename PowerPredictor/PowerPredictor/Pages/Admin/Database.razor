@@ -1,5 +1,8 @@
 ﻿@page "/admin/database"
 @inject ILoadService LoadService
+@inject ToastService ToastService
+
+<ConfirmDialog @ref="dialog" />
 
 <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6">
@@ -35,10 +38,24 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check mb-2">
+                                        <InputCheckbox class="mycheckbox" id="OverrideExisting" @bind-Value="dateRange.OverrideExisting" />
+                                        <label for="OverrideExisting" class="form-label">Override existing values?</label>
+                                    </div>
+                                </div>
+                            </div>
                             
                             <LoadingButton IsLoading="isLoading">
                                 Update database
                             </LoadingButton>
+                            @if(isLoading)
+                            {
+                                <Progress Class="mb-2 mt-2">
+                                    <ProgressBar Color="ProgressColor.Primary" Width="@updateProgressValue" Label="@(updateProgressValue + "%")" />
+                                </Progress>
+                            }
                         </EditForm>
                     </CardBody>
                 </Card>
@@ -61,7 +78,7 @@
                         <Progress Class="mb-3">
                             <ProgressBar Color="ProgressColor.Primary" Width="@predictionCompletness" Label="@(predictionCompletness + "%")" />
                         </Progress>
-                        <Button Color="ButtonColor.Primary" To="#" Type="ButtonType.Link">Go somewhere</Button>
+                        <Button Color="ButtonColor.Danger" @onclick="ClearLoadsAsync" Type="ButtonType.Button">Clear load table</Button>
                     </CardBody>
                 </Card>
             </div>
@@ -77,25 +94,55 @@
     DateTime? latestDate = default!;
     int numberOfEntries = 0;
 
+    System.Progress<int> updateProgress = new Progress<int>();
+    private int updateProgressValue = 0;
+
+    private ConfirmDialog dialog = default!;
+
     public class DateRange
     {
         [Required]
-        public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        [ValidateScrapperDate]
+        public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Now.AddDays(-1));
 
         [Required]
-        public DateOnly EndDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        [ValidateScrapperDate]
+        public DateOnly EndDate { get; set; } = DateOnly.FromDateTime(DateTime.Now.AddDays(-1));
+
+        public bool OverrideExisting { get; set; }
     }
     DateRange dateRange = new DateRange();
     private bool isLoading = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UpdateInfoPanel();
+        updateProgress.ProgressChanged += (sender, e) =>
+        {
+            updateProgressValue = e;
+            InvokeAsync(StateHasChanged);
+        };
+    }
+
     private async Task UpdateDatabase()
     {
         isLoading = true;
-        await LoadService.DownloadLoadsAsync(dateRange.StartDate, dateRange.EndDate);
+        await LoadService.DownloadLoadsAsync(dateRange.StartDate, dateRange.EndDate, updateProgress);
+
+        var message = new ToastMessage
+        {
+            Type = ToastType.Success,
+            Title = "Success",
+            HelpText = $"{DateTime.Now}",
+            Message = $"Database has been updated"
+        };
+        ToastService.Notify(message);
+        await UpdateInfoPanel();
         isLoading = false;
         await InvokeAsync(StateHasChanged);
     }
 
-    protected override async Task OnInitializedAsync()
+    private async Task UpdateInfoPanel()
     {
         var start = await LoadService.GetEarliestData();
         var end = await LoadService.GetLatestData();
@@ -106,15 +153,39 @@
 
         TimeSpan? timeSpan = (latestDate - earliestDate);
         if (timeSpan.HasValue)
-            scrappedDataCompleteness = (int)(numberOfEntries / (timeSpan.Value.TotalHours + 1) * 100);
+            scrappedDataCompleteness = (int)(numberOfEntries / (timeSpan.Value.TotalHours) * 100);
         else
             scrappedDataCompleteness = 0;
 
         int numberOfPredictions = await LoadService.GetNumberOfPredictions();
 
-        if(numberOfEntries > 0)
+        if (numberOfEntries > 0)
             predictionCompletness = (int)(numberOfPredictions * 100 / numberOfEntries);
         else
             predictionCompletness = 0;
     }
+
+    private async Task ClearLoadsAsync()
+    {
+        var confirmation = await dialog.ShowAsync(
+           title: "Are you sure you want to clear loads table?",
+           message1: "This will delete all entries in load table.",
+           message2: "Do you want to proceed?");
+
+        if (confirmation)
+        {
+            await LoadService.DeleteAllLoadsAsync();
+            var message = new ToastMessage
+                {
+                    Type = ToastType.Success,
+                    Title = "Success",
+                    HelpText = $"{DateTime.Now}",
+                    Message = $"Load table has been cleared"
+                };
+            ToastService.Notify(message);
+            await UpdateInfoPanel();
+        }
+    }
+
+
 }

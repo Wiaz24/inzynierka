@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PowerPredictor.Models;
+using System.Reflection.Emit;
 
 namespace PowerPredictor
 {
@@ -12,6 +13,9 @@ namespace PowerPredictor
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<Load>()
+                .HasIndex(l => l.Date)
+                .IsUnique();
         }
         public DbSet<Load> Loads { get; set; }
     }

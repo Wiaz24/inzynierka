@@ -72,13 +72,29 @@ namespace PowerPredictor.Services
             return count;
         }
 
-        public async Task<IEnumerable<Load>> DownloadLoadsAsync(DateOnly start, DateOnly stop)
+        public async Task DeleteAllLoadsAsync()
+        {
+            _context.Loads.RemoveRange(_context.Loads);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Load>> DownloadLoadsAsync(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues)
         {
             string baseURL = "https://www.wnp.pl/energetyka/notowania/zapotrzebowanie_mocy_kse/?d=";
             var web = new HtmlWeb();
             IEnumerable<Load> loads = new List<Load>();
+
+            int numOfDays = (stop.DayNumber - start.DayNumber) + 1;
+            int percent = 0;
+            int currentDay = 0;
+
             for (DateOnly currentDate = start; currentDate <= stop; currentDate = currentDate.AddDays(1))
             {
+                if (progress != null)
+                {
+                    percent = (int)Math.Round((double)currentDay / numOfDays * 100);
+                    progress.Report(percent);
+                }
                 string url = baseURL + currentDate.ToString("yyyy-MM-dd");
                 var doc = web.Load(url);
                 var table = doc.DocumentNode.SelectNodes("//tbody")[1];
@@ -113,9 +129,25 @@ namespace PowerPredictor.Services
                             PSEForecastedTotalLoad = pseForecast
                         };
                         loads.Append(load);
-                        _context.Loads.Add(load);
+
+                        //find if load with provided date already exists. Date is not primary key
+                        var existingLoad = await _context.Loads.Where(l => l.Date == dateTime).FirstOrDefaultAsync();
+                        if (existingLoad is null)
+                        {
+                            _context.Loads.Add(load);
+                        }
+                        else
+                        {
+                            if (overrideValues)
+                            {
+                                existingLoad.ActualTotalLoad = realLoad;
+                                existingLoad.PSEForecastedTotalLoad = pseForecast;
+                                _context.Entry(existingLoad).State = EntityState.Modified;
+                            }
+                        }
                     }
                 }
+                currentDay++;
                 await _context.SaveChangesAsync();
             } 
             return loads;
