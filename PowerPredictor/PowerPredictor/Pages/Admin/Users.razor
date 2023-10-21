@@ -1,6 +1,7 @@
 ﻿@page "/admin/users"
 @inject UserManager<User> userManager
 @inject ToastService ToastService
+@attribute [Authorize(Roles = "Admin")]
 
 <ConfirmDialog @ref="dialog" />
 

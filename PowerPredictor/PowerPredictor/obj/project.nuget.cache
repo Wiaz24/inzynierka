@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "++bjVgM7nNm75BXUvGRICEbgM1y7Nkw7eSZqYonoHsRyX5gnLrkBHkDnthVPhTPM6uqzPYwIANEHX+6Ek2hmNw==",
+  "dgSpecHash": "Ji/E12olg72/kqHGbMq6OnYT7EdDMcXOSL+9rCZSbym1tDwK+UBPATmXMwyqalcoYAiA/HX3DVRw19vLdB+I8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\PowerPredictor.csproj",
+  "projectFilePath": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\PowerPredictor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ja\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Ja\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

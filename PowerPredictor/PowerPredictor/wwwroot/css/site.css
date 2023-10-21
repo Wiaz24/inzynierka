@@ -6,11 +6,15 @@
 }
 
 html, body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
     background-color: rgb(26, 26, 26);
     font-family: 'Onest';
 }
 
-#NotFoundMessage {
+.GlobalMessage {
     font-size: 2rem;
     color: white;
     text-align: center;

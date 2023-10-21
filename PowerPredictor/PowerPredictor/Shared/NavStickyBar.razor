@@ -11,15 +11,28 @@
 
         <div class="@NavMenuCssClass navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item mx-md-5">
-                    <a class="nav-link" href="/predictor">Predictor</a>
-                </li>
-                <li class="nav-item mx-md-5">
-                    <a class="nav-link" href="/admin/users">Users</a>
-                </li>
-                <li class="nav-item mx-md-5">
-                    <a class="nav-link" href="/admin/database">Database</a>
-                </li>
+                <AuthorizeView>
+                    <Authorized>
+                        <li class="nav-item mx-md-5">
+                            <a class="nav-link" href="/predictor">Predictor</a>
+                        </li>
+                    </Authorized>
+                    <NotAuthorized>
+                        <li class="nav-item mx-md-5">
+                            <a class="nav-link" href="/account/login">Predictor</a>
+                        </li>
+                    </NotAuthorized>
+                </AuthorizeView>
+                <AuthorizeView Roles="Admin">
+                    <Authorized>
+                        <li class="nav-item mx-md-5">
+                            <a class="nav-link" href="/admin/users">Users</a>
+                        </li>
+                        <li class="nav-item mx-md-5">
+                            <a class="nav-link" href="/admin/database">Database</a>
+                        </li>
+                    </Authorized>
+                </AuthorizeView>
             </ul>
             <AuthorizeView>
                 <Authorized>

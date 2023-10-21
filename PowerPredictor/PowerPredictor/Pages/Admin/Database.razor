@@ -1,6 +1,7 @@
 ﻿@page "/admin/database"
 @inject ILoadService LoadService
 @inject ToastService ToastService
+@attribute [Authorize(Roles = "Admin")]
 
 <ConfirmDialog @ref="dialog" />
 

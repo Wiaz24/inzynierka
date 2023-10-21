@@ -1,37 +1,41 @@
 ﻿@page "/predictor"
 @inject ILoadService LoadService
+@attribute [Authorize]
 
 <PageTitle>Predictor</PageTitle>
 
-<div class="btn-group" role="group" aria-label="Basic example">
-    <Button Color="ButtonColor.Secondary" @onclick="ShowToday">Today</Button>
-    <Button Color="ButtonColor.Secondary" @onclick="ShowThisWeek">This week</Button>
-    <Button Color="ButtonColor.Secondary" @onclick="ShowThisMonth">This month</Button>
-    <Button Color="ButtonColor.Secondary" @onclick="ShowThisYear">This year</Button>
-    <Dropdown>
-        <DropdownToggleButton Color="ButtonColor.Secondary">Select period</DropdownToggleButton>
-        <DropdownMenu Style="width: 200px;">
-            <div class="d-flex align-content-center justify-content-center">
-                <EditForm Model="dateRange" OnValidSubmit="ShowSelectedPeriod">
-                    <DataAnnotationsValidator />
-                    <div class="form-group mb-2">
-                        <label for="StartDate">Start Date</label>
-                        <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
-                        <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="EndDate">End Date</label>
-                        <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
-                        <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
-                    </div>
-                    <Button Class="w-100 d-block" Color="ButtonColor.Primary" Type="ButtonType.Submit">Show result</Button>
-                </EditForm>
-            </div>
-        </DropdownMenu>
-    </Dropdown>
+<div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <Button Color="ButtonColor.Secondary" @onclick="ShowToday">Today</Button>
+        <Button Color="ButtonColor.Secondary" @onclick="ShowThisWeek">This week</Button>
+        <Button Color="ButtonColor.Secondary" @onclick="ShowThisMonth">This month</Button>
+        <Button Color="ButtonColor.Secondary" @onclick="ShowThisYear">This year</Button>
+        <Dropdown>
+            <DropdownToggleButton Color="ButtonColor.Secondary">Select period</DropdownToggleButton>
+            <DropdownMenu Class="px-2">
+                <div class="d-flex align-content-center justify-content-center px-2">
+                    <EditForm Model="dateRange" OnValidSubmit="ShowSelectedPeriod">
+                        <DataAnnotationsValidator />
+                        <div class="form-group mb-2 w-100">
+                            <label for="StartDate">Start Date</label>
+                            <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
+                            <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
+                        </div>
+                        <div class="form-group mb-2 w-100">
+                            <label for="EndDate">End Date</label>
+                            <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
+                            <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
+                        </div>
+                        <Button Class="w-100 d-block" Color="ButtonColor.Primary" Type="ButtonType.Submit">Show result</Button>
+                    </EditForm>
+                </div>
+            </DropdownMenu>
+        </Dropdown>
+    </div>
+
+    <LineChart @ref="lineChart" />
 </div>
 
-<LineChart @ref="lineChart" />
 
 @code {
     class DateRange

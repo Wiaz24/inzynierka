@@ -55,6 +55,22 @@ using (var scope = app.Services.CreateScope())
             await roleManager.CreateAsync(new IdentityRole(role));
         }
     }
+    var adminSettings = builder.Configuration.GetSection("AdminSettings")
+        ?? throw new NullReferenceException("No admin settings found in config file");
+
+    var userManager = services.GetRequiredService<UserManager<User>>();
+    var admin = await userManager.FindByEmailAsync(adminSettings["Email"]);
+    if (admin == null)
+    {
+        admin = new User
+        {
+            UserName = adminSettings["Email"] ?? throw new NullReferenceException("Invalid admin email adress in config file"),
+            Email = adminSettings["Email"] ?? throw new NullReferenceException("Invalid admin email adress in config file"),
+            EmailConfirmed = true
+        };
+        await userManager.CreateAsync(admin, adminSettings["Password"] ?? throw new NullReferenceException("Invalid admin password in config file"));
+        await userManager.AddToRoleAsync(admin, "Admin");
+    }
     try
     {
         // Get an instance of your context class and run any pending migrations
