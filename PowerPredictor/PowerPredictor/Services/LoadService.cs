@@ -17,6 +17,16 @@ namespace PowerPredictor.Services
         {
             return await _context.FindAsync<Load>(id);
         }
+        public List<Load> GetLoads(DateTime start, DateTime stop, bool dayInterval = false)
+        {
+            var query = _context.Loads
+                .Where(load => load.Date >= start && load.Date <= stop);
+            if (dayInterval)
+                query = query.Where(load => load.Date.Hour == 0 && load.Date.Minute == 0);
+
+            return query.ToList();
+        }
+
         public async Task<Load> AddLoadAsync(Load load)
         {
             _context.Loads.Add(load);

@@ -6,6 +6,7 @@ namespace PowerPredictor.Services.Interfaces
     public interface ILoadService
     {
         Task<Load?> GetLoadAsync(int id);
+        List<Load> GetLoads(DateTime start, DateTime stop, bool dayInterval);
         Task<Load> AddLoadAsync(Load load);
         Task AddLoadsAsync(IEnumerable<Load> loads);
         Task<Load> UpdateLoadAsync(Load load);

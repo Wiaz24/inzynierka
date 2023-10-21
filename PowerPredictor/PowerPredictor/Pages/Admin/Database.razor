@@ -102,11 +102,11 @@
     public class DateRange
     {
         [Required]
-        [ValidateScrapperDate]
+        [ValidateScrapperDate(otherDate: "EndDate")]
         public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Now.AddDays(-1));
 
         [Required]
-        [ValidateScrapperDate]
+        [ValidateScrapperDate(otherDate: "StartDate")]
         public DateOnly EndDate { get; set; } = DateOnly.FromDateTime(DateTime.Now.AddDays(-1));
 
         public bool OverrideExisting { get; set; }
