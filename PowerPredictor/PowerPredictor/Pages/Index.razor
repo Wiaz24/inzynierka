@@ -1,9 +1,30 @@
 ﻿@page "/"  
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Power Predictor</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<div id="particles-js">
+</div>
+<div class="bg-transparent text-secondary px-4 py-5 text-center" id="main-banner">
+    <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Actual and predicted energy grid load</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="fs-5 mb-4">
+                Analyze the energy grid load historical data and use the power of artificial inteligence to predict the future load.
+                Log in and get full access to the data charts and predictions.
+                </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <Button Class="btn-outline-light btn-lg px-4" Style="z-index: 1;" Type="ButtonType.Link" To="/account/login">Join now</Button>
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("InitParticles");
+        }
+    }
+}

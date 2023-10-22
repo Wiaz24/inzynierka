@@ -117,6 +117,58 @@
       "PackagePath": "staticwebassets\\images\\pplogo.png"
     },
     {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\.gitignore",
+      "PackagePath": "staticwebassets\\particles\\.gitignore"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\LICENSE.md",
+      "PackagePath": "staticwebassets\\particles\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\README.md",
+      "PackagePath": "staticwebassets\\particles\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\bower.json",
+      "PackagePath": "staticwebassets\\particles\\bower.json"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\css\\style.css",
+      "PackagePath": "staticwebassets\\particles\\demo\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\index.html",
+      "PackagePath": "staticwebassets\\particles\\demo\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\app.js",
+      "PackagePath": "staticwebassets\\particles\\demo\\js\\app.js"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\lib\\stats.js",
+      "PackagePath": "staticwebassets\\particles\\demo\\js\\lib\\stats.js"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\particles.json",
+      "PackagePath": "staticwebassets\\particles\\demo\\particles.json"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\package.json",
+      "PackagePath": "staticwebassets\\particles\\package.json"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.js",
+      "PackagePath": "staticwebassets\\particles\\particles.js"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.json",
+      "PackagePath": "staticwebassets\\particles\\particles.json"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.min.js",
+      "PackagePath": "staticwebassets\\particles\\particles.min.js"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.PowerPredictor.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -20,10 +20,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/Account.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxBY2NvdW50LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Account/ConfirmAccount.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxDb25maXJtQWNjb3VudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,8 +48,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGF0YWJhc2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Admin/MessageDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWVzc2FnZURpc3BsYXkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Admin/Messages.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWVzc2FnZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Admin/UserEditForm.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlckVkaXRGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Contact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ja/Desktop/inzynierka/PowerPredictor/PowerPredictor/Pages/Index.razor]

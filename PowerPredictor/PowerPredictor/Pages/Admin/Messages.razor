@@ -1,0 +1,110 @@
+﻿@page "/admin/messages"
+@inject IContactMessageService ContactMessageService
+@inject ToastService ToastService
+@attribute [Authorize(Roles = "Admin")]
+
+<ConfirmDialog @ref="dialog" Class="ConfirmDialog"/>
+
+<Offcanvas @ref="offcanvas" Class="Offcanvas"/>
+
+<div id="Content">
+    <Grid TItem="ContactMessage"
+          @ref="grid"
+          Class="table table-hover table-bordered table-striped table-dark"
+          DataProvider="DataProvider"
+          AllowPaging="true"
+          AllowFiltering="false"
+          AllowSorting="true"
+          PageSize="10"
+          PaginationItemsTextFormat="Items {0} - {1} of {2}"
+          ItemsPerPageText="no"
+          PageSizeSelectorVisible="false"
+          PageSizeSelectorItems="@(new int[] { 5,10,20 })"
+          Responsive="true">
+
+        <GridColumn TItem="ContactMessage" HeaderText="Time" SortKeySelector="item => item.Date">
+            @context.Date
+        </GridColumn>
+
+        <GridColumn TItem="ContactMessage" HeaderText="Name" SortString="Name" SortKeySelector="item => item.Name">
+            @context.Name
+        </GridColumn>
+
+        <GridColumn TItem="ContactMessage" HeaderText="Email" SortString="Email" SortKeySelector="item => item.Email">
+            @context.Email
+        </GridColumn>
+
+        <GridColumn TItem="ContactMessage" HeaderText="Show message" PropertyName="Show message" Sortable="false" TextAlignment="Alignment.Center" HeaderTextAlignment="Alignment.Center">
+            <ChildContent>
+                <Button Color="ButtonColor.Secondary" @onclick="() => ShowMessage(context)"> Show </Button>
+            </ChildContent>
+        </GridColumn>
+
+        <GridColumn TItem="ContactMessage" HeaderText="Delete" PropertyName="Delete" Sortable="false" TextAlignment="Alignment.Center" HeaderTextAlignment="Alignment.Center">
+            <ChildContent>
+                <Button Color="ButtonColor.Danger" @onclick="() => DeleteContactMessage(context)"> Delete </Button>
+            </ChildContent>
+        </GridColumn>
+    </Grid>
+</div>
+
+
+@code {
+    private Offcanvas offcanvas = default!;
+    private ConfirmDialog dialog = default!;
+    private Grid<ContactMessage> grid = default!;
+
+    private IEnumerable<ContactMessage> messages = default!;
+
+    private bool edited = false;
+
+    private async Task OnHideOffcanvasClick()
+    {
+        await offcanvas?.HideAsync();
+    }
+    private async Task<GridDataProviderResult<ContactMessage>> DataProvider(GridDataProviderRequest<ContactMessage> request)
+    {
+        if (messages is null || edited) // pull users only one time for client-side filtering, sorting, and paging
+            messages = ContactMessageService.GetAllMessages();
+
+        edited = false;
+        return await Task.FromResult(request.ApplyTo(messages));
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private async Task DeleteContactMessage(ContactMessage context)
+    {
+        var confirmation = await dialog.ShowAsync(
+            title: "Are you sure you want to delete this message?",
+            message1: "Name: " + context.Name,
+            message2: "Email: " + context.Email);
+
+        if (confirmation)
+        {
+            edited = true;
+            ContactMessageService.DeleteMessage(context.Id);
+            await grid.RefreshDataAsync();
+            var message = new ToastMessage
+                {
+                    Type = ToastType.Success,
+                    Title = "Success",
+                    HelpText = $"{DateTime.Now}",
+                    Message = $"Message has been deleted successfully",
+                };
+            ToastService.Notify(message);
+        }
+    }
+
+    private async Task ShowMessage(ContactMessage context)
+    {
+        edited = true;
+        await offcanvas?.ShowAsync<MessageDisplay>(title: $"Message from {context.Name}:", 
+            new Dictionary<string, object>() { ["contactForm"] = context });
+        await grid.RefreshDataAsync();
+    }
+
+}

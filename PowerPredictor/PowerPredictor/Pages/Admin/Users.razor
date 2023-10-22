@@ -3,15 +3,15 @@
 @inject ToastService ToastService
 @attribute [Authorize(Roles = "Admin")]
 
-<ConfirmDialog @ref="dialog" />
+<ConfirmDialog @ref="dialog" Class="ConfirmDialog" />
 
-<Offcanvas @ref="offcanvas" />
+<Offcanvas @ref="offcanvas" Class="Offcanvas" />
 
 <div id="Content">
     <Grid TItem="User"
         @ref="grid"
         Class="table table-hover table-bordered table-striped table-dark"
-        DataProvider="EmployeesDataProvider"
+        DataProvider="DataProvider"
         AllowPaging="true"
         AllowFiltering="false"
         AllowSorting="true"
@@ -62,7 +62,7 @@
     {
         await offcanvas?.HideAsync();
     }
-    private async Task<GridDataProviderResult<User>> EmployeesDataProvider(GridDataProviderRequest<User> request)
+    private async Task<GridDataProviderResult<User>> DataProvider(GridDataProviderRequest<User> request)
     {
         if (users is null || edited) // pull users only one time for client-side filtering, sorting, and paging
             users = await userManager.GetUsersInRoleAsync("StdUser");

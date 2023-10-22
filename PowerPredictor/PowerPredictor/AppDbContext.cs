@@ -18,5 +18,6 @@ namespace PowerPredictor
                 .IsUnique();
         }
         public DbSet<Load> Loads { get; set; }
+        public DbSet<ContactMessage> ContactMessages { get; set; }
     }
 }

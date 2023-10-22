@@ -1,0 +1,32 @@
+﻿<EditForm Model="contactForm">
+    <DataAnnotationsValidator />
+
+    <div class="form-floating mb-2">
+        <InputText id="InputName" class="form-control" placeholder=""
+                   @bind-Value="contactForm.Name" disabled/>
+        <label for="InputName" class="form-label">Name</label>
+    </div>
+
+    <div class="form-floating mb-2">
+        <InputText id="InputEmail" class="form-control" placeholder=""
+                   @bind-Value="contactForm.Email" disabled />
+        <label for="InputEmail" class="form-label">Email</label>
+    </div>
+
+    <div class="form-floating mb-2">
+        <InputTextArea style="height: 300px" id="InputMessage" class="form-control" placeholder=""
+                       @bind-Value="contactForm.Message" disabled />
+        <label for="InputMessage" class="form-label">Message</label>
+    </div>
+
+</EditForm>
+
+@code {
+    [Parameter]
+    public ContactMessage contactForm { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+}

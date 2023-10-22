@@ -19,6 +19,7 @@ var emailSettings = builder.Configuration.GetSection("EmailSettings")
     ?? throw new NullReferenceException("No email settings found in config file");
 builder.Services.Configure<EmailServiceConfiguration>(emailSettings);
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IContactMessageService, ContactMessageService>();
 
 //Entity framework core service
 builder.Services.AddDbContext<AppDbContext>(options =>

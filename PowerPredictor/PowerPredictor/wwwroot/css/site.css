@@ -14,6 +14,35 @@ html, body {
     font-family: 'Onest';
 }
 
+#particles-js {
+    position: absolute;
+    width: 96vw;
+    height: 93vh;
+    z-index: 0;
+}
+
+.circle-icon {
+    width: 60px;
+    height: 60px;
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%);
+    background-size: 200% auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    font-size: 24px; 
+}
+
+.feature-with-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    
+}
+
+
 .GlobalMessage {
     font-size: 2rem;
     color: white;
@@ -155,4 +184,16 @@ a, .btn-link {
     background-color: rgb(50,50,50);
     height: 100%;
     width: 100%;
+}
+
+.ConfirmDialog {
+    color: black;
+}
+
+.Offcanvas {
+    color: black;
+}
+
+.Toast {
+    color: black;
 }

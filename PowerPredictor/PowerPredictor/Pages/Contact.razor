@@ -1,0 +1,86 @@
+﻿@page "/contact"
+@inject IContactMessageService ContactMessageService
+
+<div class="container px-5">
+    <div class="row mb-4">
+        <div class="col text-center mx-auto">
+            <h2> Contact me </h2>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <EditForm Model="contactForm" OnValidSubmit="HandleContactMessage">
+                <DataAnnotationsValidator />
+
+                <div class="form-floating mb-2">
+                    <InputText id="InputName" class="form-control" aria-required="true" placeholder=""
+                               @bind-Value="contactForm.Name" />
+                    <label for="InputName" class="form-label">Name</label>
+                    <ValidationMessage For="() => contactForm.Name" />
+                </div>
+
+                <div class="form-floating mb-2">
+                    <InputText id="InputEmail" class="form-control" aria-required="true" placeholder=""
+                               @bind-Value="contactForm.Email" />
+                    <label for="InputEmail" class="form-label">Email</label>
+                    <ValidationMessage For="() => contactForm.Email" />
+                </div>
+
+                <div class="form-floating mb-2">
+                    <InputTextArea style="height: 300px" id="InputMessage" class="form-control" aria-required="true" placeholder=""
+                                   @bind-Value="contactForm.Message" />
+                    <label for="InputMessage" class="form-label">Message</label>
+                    <ValidationMessage For="() => contactForm.Message" />
+                </div>
+
+                <LoadingButton FullWidth="true">
+                    Send
+                </LoadingButton>
+            </EditForm>
+        </div>
+        <div class="col-md-5 justify-content-center h-100 mt-4">
+            <div class="feature-with-icon">
+                <div class="circle-icon me-2">
+                    <Icon Name="IconName.BugFill"></Icon> 
+                </div>
+                <h5>Report a bug</h5>
+            </div>
+            <div class="feature-with-icon">
+                <div class="circle-icon me-2">
+                    <Icon Name="IconName.LightbulbFill"></Icon>
+                </div>
+                <h5>Share your ideas</h5>
+            </div>
+            <div class="feature-with-icon">
+                <div class="circle-icon me-2">
+                    <Icon Name="IconName.QuestionCircleFill"></Icon>
+                </div>
+                <h5>Ask questions</h5>
+            </div>
+            @if (alert)
+            {
+                <Alert Color="@alertColor" Dismissable="false" Style="text-align: left;" Class="mt-3">
+                    <Icon Name="@alertIcon" class="me-2"></Icon>
+                    @alertMessage
+                </Alert>
+            }
+        </div>
+    </div>
+</div>
+
+
+@code {
+    ContactMessage contactForm = new ContactMessage();
+
+    public bool alert = false;
+    public string alertMessage = "Message has been sent";
+    public AlertColor alertColor = AlertColor.Success;
+    public IconName alertIcon = IconName.CheckCircleFill;
+
+    private void HandleContactMessage()
+    {
+        ContactMessageService.AddMessage(contactForm);
+        alert = true;
+        contactForm = new ContactMessage();
+    }
+}
