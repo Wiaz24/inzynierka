@@ -2,6 +2,9 @@
 
 namespace PowerPredictor.Data
 { 
+    /// <summary>
+    /// Password validation data annotation
+    /// </summary>
     public class ValidatePassword : ValidationAttribute
     {
         private readonly int minLenght = 6;
@@ -9,6 +12,12 @@ namespace PowerPredictor.Data
         private readonly bool requireUppercase = true;
         private readonly bool requireNonAlphanumeric = false;
 
+        /// <summary>
+        /// Checks if password is valid
+        /// </summary>
+        /// <param name="value"> Provided password </param>
+        /// <param name="validationContext"> Form context </param>
+        /// <returns></returns>
         protected override ValidationResult? IsValid(object value,
                     ValidationContext validationContext)
         {
@@ -17,7 +26,7 @@ namespace PowerPredictor.Data
             if (password.Length < minLenght)
                 return new ValidationResult($"Password must be at least {minLenght} characters long",
                                        new[] { validationContext.MemberName });
-
+            
             bool hasNumber = false;
             bool hasNonAlphanumeric = false;
             bool hasUppercase = false;

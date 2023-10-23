@@ -90,10 +90,8 @@
 
             if (result.Succeeded)   //correct credentials
             {
-                Guid key = Guid.NewGuid();
-                BlazorCookieLoginMiddleware.Logins[key] = new LoginInfo {   Email = loginModel.Email, 
-                                                                            Password = loginModel.Password, 
-                                                                            RememberMe = loginModel.RememberMe};
+                Guid key = Guid.NewGuid();  //create new global unique indentifier
+                LoginMiddleware.Logins[key] = loginModel;
                 NavigationManager.NavigateTo($"/account/login?key={key}", true);
             }
             else   //incorrect credentials

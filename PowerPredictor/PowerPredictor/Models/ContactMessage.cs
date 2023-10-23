@@ -2,6 +2,9 @@
 
 namespace PowerPredictor.Models
 {
+    /// <summary>
+    /// Contact message model
+    /// </summary>
     public class ContactMessage
     {
         [Key]

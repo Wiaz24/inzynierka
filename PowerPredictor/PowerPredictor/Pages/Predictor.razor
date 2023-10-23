@@ -5,33 +5,37 @@
 <PageTitle>Predictor</PageTitle>
 
 <div class="container">
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <Button Color="ButtonColor.Secondary" @onclick="ShowToday">Today</Button>
-        <Button Color="ButtonColor.Secondary" @onclick="ShowThisWeek">This week</Button>
-        <Button Color="ButtonColor.Secondary" @onclick="ShowThisMonth">This month</Button>
-        <Button Color="ButtonColor.Secondary" @onclick="ShowThisYear">This year</Button>
-        <Dropdown>
-            <DropdownToggleButton Color="ButtonColor.Secondary">Select period</DropdownToggleButton>
-            <DropdownMenu Class="px-2">
-                <div class="d-flex align-content-center justify-content-center px-2">
-                    <EditForm Model="dateRange" OnValidSubmit="ShowSelectedPeriod">
-                        <DataAnnotationsValidator />
-                        <div class="form-group mb-2 w-100">
-                            <label for="StartDate">Start Date</label>
-                            <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
-                            <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
-                        </div>
-                        <div class="form-group mb-2 w-100">
-                            <label for="EndDate">End Date</label>
-                            <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
-                            <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
-                        </div>
-                        <Button Class="w-100 d-block" Color="ButtonColor.Primary" Type="ButtonType.Submit">Show result</Button>
-                    </EditForm>
-                </div>
-            </DropdownMenu>
-        </Dropdown>
+    <div class="d-flex justify-content-between">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <Button Color="ButtonColor.Secondary" @onclick="ShowToday">Today</Button>
+            <Button Color="ButtonColor.Secondary" @onclick="ShowThisWeek">This week</Button>
+            <Button Color="ButtonColor.Secondary" @onclick="ShowThisMonth">This month</Button>
+            <Button Color="ButtonColor.Secondary" @onclick="ShowThisYear">This year</Button>
+            <Dropdown>
+                <DropdownToggleButton Color="ButtonColor.Secondary">Select period</DropdownToggleButton>
+                <DropdownMenu Class="px-2">
+                    <div class="d-flex align-content-center justify-content-center px-2">
+                        <EditForm Model="dateRange" OnValidSubmit="ShowSelectedPeriod">
+                            <DataAnnotationsValidator />
+                            <div class="form-group mb-2 w-100">
+                                <label for="StartDate">Start Date</label>
+                                <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
+                                <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
+                            </div>
+                            <div class="form-group mb-2 w-100">
+                                <label for="EndDate">End Date</label>
+                                <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
+                                <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
+                            </div>
+                            <Button Class="w-100 d-block" Color="ButtonColor.Primary" Type="ButtonType.Submit">Show result</Button>
+                        </EditForm>
+                    </div>
+                </DropdownMenu>
+            </Dropdown>
+        </div>
+        <Button Color="ButtonColor.Secondary" @onclick="ExportCSV">Export to CSV</Button>
     </div>
+    
 
     <LineChart @ref="lineChart" />
 </div>
@@ -186,4 +190,26 @@
 
         await lineChart.InitializeAsync(chartData, lineChartOptions);
     } 
+
+    private void ExportCSV()
+    {
+        //var csv = new StringBuilder();
+        //csv.AppendLine("Time,Actual total load,Forecasted total load");
+
+        //foreach (var load in displayedLoads)
+        //{
+        //    var newLine = string.Format("{0},{1},{2}", load.DateTime.ToString("dd.MM.yyyy HH:mm"), load.ActualTotalLoad, load.PPForecastedTotalLoad);
+        //    csv.AppendLine(newLine);
+        //}
+
+        //var fileName = "PowerPredictorData.csv";
+        //var fileBytes = Encoding.UTF8.GetBytes(csv.ToString());
+        //var fileStream = new MemoryStream(fileBytes);
+
+        //_ = JSRuntime.InvokeAsync<object>(
+        //    "saveAsFile",
+        //    fileName,
+        //    Convert.ToBase64String(fileBytes)
+        //);
+    }
 }

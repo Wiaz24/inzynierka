@@ -14,7 +14,15 @@
                 Log in and get full access to the data charts and predictions.
                 </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <Button Class="btn-outline-light btn-lg px-4" Style="z-index: 1;" Type="ButtonType.Link" To="/account/login">Join now</Button>
+                <AuthorizeView>
+                    <Authorized>
+                        <Button Class="btn-outline-light btn-lg px-4" Style="z-index: 1;" Type="ButtonType.Link" To="/predictor">View data</Button>
+                    </Authorized>
+                    <NotAuthorized>
+                        <Button Class="btn-outline-light btn-lg px-4" Style="z-index: 1;" Type="ButtonType.Link" To="/account/login">Join now</Button>
+                    </NotAuthorized>
+                </AuthorizeView>
+                
             </div>
         </div>
     </div>

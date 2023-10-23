@@ -17,8 +17,7 @@
    - Bootstrap
 
 3. Baza danych
-   - MySQL
-   - Azure
+   - MSSQL Server
 
 4. Sieć neuronowa
    - Python

@@ -102,7 +102,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseMiddleware<BlazorCookieLoginMiddleware>();
+app.UseMiddleware<LoginMiddleware>();
 app.UseMiddleware<LogoutMiddleware>();
 
 app.MapBlazorHub();
