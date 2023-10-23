@@ -1,5 +1,8 @@
 ﻿@page "/predictor"
+@using System.Net.Mime;
+@using Microsoft.AspNetCore.Http.Headers;
 @inject ILoadService LoadService
+@inject IJSRuntime JSRuntime
 @attribute [Authorize]
 
 <PageTitle>Predictor</PageTitle>
@@ -191,25 +194,21 @@
         await lineChart.InitializeAsync(chartData, lineChartOptions);
     } 
 
-    private void ExportCSV()
+    private async void ExportCSV()
     {
-        //var csv = new StringBuilder();
-        //csv.AppendLine("Time,Actual total load,Forecasted total load");
+        var csv = new StringBuilder();
+        csv.AppendLine("Time,Actual total load[MW],Forecasted total load[MW]");
 
-        //foreach (var load in displayedLoads)
-        //{
-        //    var newLine = string.Format("{0},{1},{2}", load.DateTime.ToString("dd.MM.yyyy HH:mm"), load.ActualTotalLoad, load.PPForecastedTotalLoad);
-        //    csv.AppendLine(newLine);
-        //}
+        foreach (var load in displayedLoads)
+        {
+            var newLine = string.Format(System.Globalization.CultureInfo.InvariantCulture,"{0},{1},{2}", load.Date.ToString("dd.MM.yyyy HH:mm"), load.ActualTotalLoad, load.PPForecastedTotalLoad);
+            csv.AppendLine(newLine);
+        }
 
-        //var fileName = "PowerPredictorData.csv";
-        //var fileBytes = Encoding.UTF8.GetBytes(csv.ToString());
-        //var fileStream = new MemoryStream(fileBytes);
+        var fileName = "PowerPredictorData.csv";
+        var fileBytes = Encoding.UTF8.GetBytes(csv.ToString());
+        var fileStream = new MemoryStream(fileBytes);
 
-        //_ = JSRuntime.InvokeAsync<object>(
-        //    "saveAsFile",
-        //    fileName,
-        //    Convert.ToBase64String(fileBytes)
-        //);
+        await JSRuntime.InvokeAsync<object>("saveAsFile", fileName, Convert.ToBase64String(fileBytes));
     }
 }
