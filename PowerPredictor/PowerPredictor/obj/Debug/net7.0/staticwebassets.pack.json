@@ -117,6 +117,10 @@
       "PackagePath": "staticwebassets\\images\\pplogo.png"
     },
     {
+      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\onnx\\LSTM_predictor.onnx",
+      "PackagePath": "staticwebassets\\onnx\\LSTM_predictor.onnx"
+    },
+    {
       "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\.gitignore",
       "PackagePath": "staticwebassets\\particles\\.gitignore"
     },

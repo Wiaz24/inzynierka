@@ -12,8 +12,8 @@ using PowerPredictor;
 namespace PowerPredictor.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231018125345_PPE prediction is now nullable")]
-    partial class PPEpredictionisnownullable
+    [Migration("20231023110314_Add loads, identity and messages")]
+    partial class Addloadsidentityandmessages
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,6 +158,36 @@ namespace PowerPredictor.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("PowerPredictor.Models.ContactMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactMessages");
+                });
+
             modelBuilder.Entity("PowerPredictor.Models.Load", b =>
                 {
                     b.Property<int>("Id")
@@ -179,6 +209,9 @@ namespace PowerPredictor.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Date")
+                        .IsUnique();
 
                     b.ToTable("Loads");
                 });

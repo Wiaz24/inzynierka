@@ -1,6 +1,7 @@
 ﻿@page "/admin/database"
 @inject ILoadService LoadService
 @inject ToastService ToastService
+@inject IPredictService PredictService
 @attribute [Authorize(Roles = "Admin")]
 
 <ConfirmDialog @ref="dialog" />
@@ -80,6 +81,15 @@
                             <ProgressBar Color="ProgressColor.Primary" Width="@predictionCompletness" Label="@(predictionCompletness + "%")" />
                         </Progress>
                         <Button Color="ButtonColor.Danger" @onclick="ClearLoadsAsync" Type="ButtonType.Button">Clear load table</Button>
+                    </CardBody>
+                </Card>
+            </div>
+            <div class="p-2 w-100">
+                <Card Class="mycard">
+                    <CardBody>
+                        <CardTitle>Run predictor</CardTitle>
+                      
+                        <Button Color="ButtonColor.Primary" @onclick="MakePrediction" Type="ButtonType.Button">Run predictor</Button>
                     </CardBody>
                 </Card>
             </div>
@@ -186,6 +196,14 @@
             ToastService.Notify(message);
             await UpdateInfoPanel();
         }
+    }
+
+    private async Task MakePrediction()
+    {
+        var points = LoadService.GetLoads(DateTime.Today.AddDays(-4).AddHours(1), DateTime.Today, false);
+        float[] inputs = points.Select(x => x.ActualTotalLoad).ToArray();
+        var answers = PredictService.Predict(inputs);
+        int i = 0;
     }
 
 

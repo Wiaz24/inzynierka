@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PowerPredictor.Migrations
 {
     /// <inheritdoc />
-    public partial class Identityandloads : Migration
+    public partial class Addloadsidentityandmessages : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,9 +30,9 @@ namespace PowerPredictor.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -51,6 +51,22 @@ namespace PowerPredictor.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ContactMessages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactMessages", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Loads",
                 columns: table => new
                 {
@@ -59,7 +75,7 @@ namespace PowerPredictor.Migrations
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ActualTotalLoad = table.Column<float>(type: "real", nullable: false),
                     PSEForecastedTotalLoad = table.Column<float>(type: "real", nullable: false),
-                    PPForecastedTotalLoad = table.Column<float>(type: "real", nullable: false)
+                    PPForecastedTotalLoad = table.Column<float>(type: "real", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -210,6 +226,12 @@ namespace PowerPredictor.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Loads_Date",
+                table: "Loads",
+                column: "Date",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -229,6 +251,9 @@ namespace PowerPredictor.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "ContactMessages");
 
             migrationBuilder.DropTable(
                 name: "Loads");

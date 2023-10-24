@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eg9G4jYsJ7PnVEzUyOnjP2KdI3DlUo6QMf+2F8BAml8=",
+  "Hash": "jtApF2cdKJGL/uqY/nQ8vdX7j5ErjqpdYwpdsAT4YAI=",
   "Source": "PowerPredictor",
   "BasePath": "_content/PowerPredictor",
   "Mode": "Default",
@@ -593,6 +593,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pp-transparent.png"
+    },
+    {
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\onnx\\LSTM_predictor.onnx",
+      "SourceId": "PowerPredictor",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "BasePath": "_content/PowerPredictor",
+      "RelativePath": "onnx/LSTM_predictor.onnx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\onnx\\LSTM_predictor.onnx"
     },
     {
       "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\.gitignore",

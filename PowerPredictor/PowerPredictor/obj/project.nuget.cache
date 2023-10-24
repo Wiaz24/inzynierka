@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "++bjVgM7nNm75BXUvGRICEbgM1y7Nkw7eSZqYonoHsRyX5gnLrkBHkDnthVPhTPM6uqzPYwIANEHX+6Ek2hmNw==",
+  "dgSpecHash": "OhXK5EH0HFPM9yWj+njUPVEEuoqQXoSqW/1iOV1CXdwNInTjMO3OFlE66Jv7BxwlYKvFqmn9agEJIc0bOZsm1w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\PowerPredictor.csproj",
   "expectedPackageFiles": [
@@ -116,6 +116,8 @@
     "C:\\Users\\Ja\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.24.0\\microsoft.identitymodel.protocols.openidconnect.6.24.0.nupkg.sha512",
     "C:\\Users\\Ja\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.24.0\\microsoft.identitymodel.tokens.6.24.0.nupkg.sha512",
     "C:\\Users\\Ja\\.nuget\\packages\\microsoft.jsinterop\\6.0.11\\microsoft.jsinterop.6.0.11.nupkg.sha512",
+    "C:\\Users\\Ja\\.nuget\\packages\\microsoft.ml.onnxruntime\\1.16.1\\microsoft.ml.onnxruntime.1.16.1.nupkg.sha512",
+    "C:\\Users\\Ja\\.nuget\\packages\\microsoft.ml.onnxruntime.managed\\1.16.1\\microsoft.ml.onnxruntime.managed.1.16.1.nupkg.sha512",
     "C:\\Users\\Ja\\.nuget\\packages\\microsoft.net.stringtools\\17.3.2\\microsoft.net.stringtools.17.3.2.nupkg.sha512",
     "C:\\Users\\Ja\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Ja\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
