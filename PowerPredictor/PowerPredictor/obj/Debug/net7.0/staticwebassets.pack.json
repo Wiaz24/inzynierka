@@ -1,172 +1,176 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PowerPredictor.bundle.scp.css",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PowerPredictor.bundle.scp.css",
       "PackagePath": "staticwebassets\\PowerPredictor.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\OFL.txt",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\OFL.txt",
       "PackagePath": "staticwebassets\\css\\fonts\\OFL.txt"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\Onest-VariableFont_wght.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\Onest-VariableFont_wght.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\Onest-VariableFont_wght.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\README.txt",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\README.txt",
       "PackagePath": "staticwebassets\\css\\fonts\\README.txt"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Black.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Black.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Black.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Bold.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Bold.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Bold.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraBold.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraBold.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-ExtraBold.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraLight.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraLight.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-ExtraLight.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Light.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Light.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Light.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Medium.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Medium.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Medium.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Regular.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Regular.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Regular.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-SemiBold.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-SemiBold.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-SemiBold.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Thin.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Thin.ttf",
       "PackagePath": "staticwebassets\\css\\fonts\\static\\Onest-Thin.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\README.md",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\README.md",
       "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pp-transparent.png",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pp-transparent.png",
       "PackagePath": "staticwebassets\\images\\pp-transparent.png"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",
       "PackagePath": "staticwebassets\\images\\pplogo-transparent.png"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
       "PackagePath": "staticwebassets\\images\\pplogo.png"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\onnx\\LSTM_predictor.onnx",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\onnx\\LSTM_predictor.onnx",
       "PackagePath": "staticwebassets\\onnx\\LSTM_predictor.onnx"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\.gitignore",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\.gitignore",
       "PackagePath": "staticwebassets\\particles\\.gitignore"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\LICENSE.md",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\LICENSE.md",
       "PackagePath": "staticwebassets\\particles\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\README.md",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\README.md",
       "PackagePath": "staticwebassets\\particles\\README.md"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\bower.json",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\bower.json",
       "PackagePath": "staticwebassets\\particles\\bower.json"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\css\\style.css",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\css\\style.css",
       "PackagePath": "staticwebassets\\particles\\demo\\css\\style.css"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\index.html",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\index.html",
       "PackagePath": "staticwebassets\\particles\\demo\\index.html"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\app.js",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\app.js",
       "PackagePath": "staticwebassets\\particles\\demo\\js\\app.js"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\lib\\stats.js",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\lib\\stats.js",
       "PackagePath": "staticwebassets\\particles\\demo\\js\\lib\\stats.js"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\particles.json",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\particles.json",
       "PackagePath": "staticwebassets\\particles\\demo\\particles.json"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\package.json",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\package.json",
       "PackagePath": "staticwebassets\\particles\\package.json"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.js",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.js",
       "PackagePath": "staticwebassets\\particles\\particles.js"
     },
     {
-      "Id": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.json",
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.json",
       "PackagePath": "staticwebassets\\particles\\particles.json"
+    },
+    {
+      "Id": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.min.js",
+      "PackagePath": "staticwebassets\\particles\\particles.min.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.PowerPredictor.Microsoft.AspNetCore.StaticWebAssets.props",

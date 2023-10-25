@@ -17,6 +17,10 @@ namespace PowerPredictor.Services
         {
             return await _context.FindAsync<Load>(id);
         }
+        public Load? GetLoadByDate(DateTime date)
+        {
+            return _context.Loads.Where(load => load.Date == date).FirstOrDefault();
+        }
         public List<Load> GetLoads(DateTime start, DateTime stop, bool dayInterval = false)
         {
             var query = _context.Loads
@@ -41,7 +45,7 @@ namespace PowerPredictor.Services
         }
         public async Task<Load> UpdateLoadAsync(Load load)
         {
-            _context.Entry(load).State = EntityState.Modified;
+            _context.Loads.Update(load);
             await _context.SaveChangesAsync();
             return load;
         }

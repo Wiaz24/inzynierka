@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Http.Headers;
 @inject ILoadService LoadService
 @inject IJSRuntime JSRuntime
+@inject IPredictService PredictService
 @attribute [Authorize]
 
 <PageTitle>Predictor</PageTitle>
@@ -148,25 +149,27 @@
                     PointBorderColor = new List<string>{ ActualLoadColor },
                     PointRadius = new List<int>{0}, // hide points
                     PointHoverRadius = new List<int>{4},
+                },
+                new LineChartDataset()
+                {
+                    Label = "Forecast",
+                    Data = displayedLoads.Select(l => l.PPForecastedTotalLoad).ToList().ConvertAll(d => (double)d),
+                    BackgroundColor = new List<string>{ ForecastLoadColor },
+                    BorderColor = new List<string>{ ForecastLoadColor },
+                    BorderWidth = new List<double>{2},
+                    HoverBorderWidth = new List<double>{4},
+                    PointBackgroundColor = new List<string>{ ForecastLoadColor },
+                    PointBorderColor = new List<string>{ ForecastLoadColor },
+                    PointRadius = new List<int>{0}, // hide points
+                    PointHoverRadius = new List<int>{4},
                 }
-                //new LineChartDataset()
-                //{
-                //    Label = "Forecast",
-                //    Data = displayedLoads.Select(l => l.PPForecastedTotalLoad).ToList().ConvertAll(d => (double)d),
-                //    BackgroundColor = new List<string>{ ForecastLoadColor },
-                //    BorderColor = new List<string>{ ForecastLoadColor },
-                //    BorderWidth = new List<double>{2},
-                //    HoverBorderWidth = new List<double>{4},
-                //    PointBackgroundColor = new List<string>{ ForecastLoadColor },
-                //    PointBorderColor = new List<string>{ ForecastLoadColor },
-                //    PointRadius = new List<int>{0}, // hide points
-                //    PointHoverRadius = new List<int>{4},
-                //}
             }
         };
         if (!firstRender)
             await lineChart.UpdateAsync(chartData, lineChartOptions);
     }
+
+
 
     private async Task RenderPlot()
     {

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
+using PowerPredictor.Models;
 using PowerPredictor.Services.Interfaces;
 
 namespace PowerPredictor.Services
@@ -9,6 +10,13 @@ namespace PowerPredictor.Services
     public class PredictServiceConfiguration
     {
         public string ModelPath { get; set; }
+        public string InputName { get; set; }
+        public string OutputName { get; set; }
+        public int InputLength { get; set; }
+        public int OutputLength { get; set; }
+        public int[] InputShape { get; set; }
+        public float MinScalerValue { get; set; }
+        public float MaxScalerValue { get; set; }
     }
 
 
@@ -17,16 +25,15 @@ namespace PowerPredictor.Services
         private readonly PredictServiceConfiguration config;
         private readonly InferenceSession onnxSession;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly float minScalerValue = 10600.0f;
-        private readonly float maxScalerValue = 27374.68f;
+        private readonly ILoadService _loadService;
 
-
-        public PredictService(IOptions<PredictServiceConfiguration> config, IWebHostEnvironment webHostEnvironment)
+        public PredictService(IOptions<PredictServiceConfiguration> _config, IWebHostEnvironment webHostEnvironment, ILoadService loadService)
         {
             _webHostEnvironment = webHostEnvironment;
-            this.config = config.Value;
+            _loadService = loadService;
+            config = _config.Value;
 
-            string fullPath = Path.Combine(_webHostEnvironment.WebRootPath, "onnx", "LSTM_predictor.onnx");
+            string fullPath = Path.Combine(_webHostEnvironment.WebRootPath, config.ModelPath);
 
             if (!File.Exists(fullPath))
                 throw new FileNotFoundException("Cant find neural network file");
@@ -56,26 +63,97 @@ namespace PowerPredictor.Services
             return originalData;
         }
 
+        /// <summary>
+        /// Predicts future power consuption using LSTM neural network
+        /// </summary>
+        /// <param name="input"> 168 pevius datapoints </param>
+        /// <returns> 24 next predicted datapoints </returns>
         public float[] Predict(float[] input)
         {
-            var normalizedInput = MinMaxScaler(input, minScalerValue, maxScalerValue);
+            if (input.Length != config.InputLength)
+                throw new ArgumentException("Input must be " + config.InputLength + " length array");
 
-            int[] inputShape = new int[] { 1, normalizedInput.Length, 1 };    //batch size, frame length, channels
-            Tensor<float> inputTensor = new DenseTensor<float>(normalizedInput, inputShape);
+            var normalizedInput = MinMaxScaler(input, config.MinScalerValue, config.MaxScalerValue);
 
-            var inputName = "modelInput";
+            Tensor<float> inputTensor = new DenseTensor<float>(normalizedInput, config.InputShape);
+
             var inputs = new List<NamedOnnxValue>
             {
-                NamedOnnxValue.CreateFromTensor(inputName, inputTensor)
+                NamedOnnxValue.CreateFromTensor(config.InputName, inputTensor)
             };
 
             var output = onnxSession.Run(inputs);
 
             var normalizedResult = output.First().AsTensor<float>().ToArray();
 
-            var result = InverseMinMaxScaler(normalizedResult, minScalerValue, maxScalerValue);
+            var result = InverseMinMaxScaler(normalizedResult, config.MinScalerValue, config.MaxScalerValue);
 
             return result;
+        }
+
+        public async Task PredictDataOnRangeAsync(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues)
+        {
+            DateTime currentDate = start.ToDateTime(TimeOnly.Parse("00:00"));
+            int numOfDays = (stop.DayNumber - start.DayNumber) + 1;
+
+            for (int dayNumber = 0; dayNumber < numOfDays; dayNumber++)
+            {
+                
+                if (progress != null)
+                {
+                    int percent = (int)Math.Round((double)dayNumber / numOfDays * 100);
+                    //int percent = (int)Math.Round((double)(currentDate - start.ToDateTime(TimeOnly.Parse("00:00"))).TotalHours / (stop.ToDateTime(TimeOnly.Parse("23:00")) - start.ToDateTime(TimeOnly.Parse("00:00"))).TotalHours * 100);
+                    progress.Report(percent);
+                }
+
+                var dateStart = currentDate.AddDays(-7).AddHours(1);
+
+                //take 168 previous loads
+                var loads = _loadService.GetLoads(dateStart, currentDate, false);
+                
+                //if there is not enough data, skip this day
+                if (loads.Count() < config.InputLength || loads.Any(x => x.ActualTotalLoad is null ))
+                {
+                    currentDate = currentDate.AddDays(1);
+                    continue;
+                }
+
+                //take only real load values
+                float?[] tmp = loads.Select(load => load.ActualTotalLoad).ToArray();
+
+                float[] input = tmp.Select(x => x.Value).ToArray();
+
+                //predict next 24 hours
+                float[] output = Predict(input);
+
+                //save predicted values to database
+                for (int i = 0; i < output.Length; i++)
+                {
+                    DateTime dateTime = currentDate.AddHours(i + 1);
+                    var existingLoad = _loadService.GetLoadByDate(dateTime);
+                    if (existingLoad is not null && overrideValues == false)
+                        continue;
+
+                    if (existingLoad is null)
+                    {
+                        var newLoad = new Load
+                        {
+                            Date = dateTime,
+                            PPForecastedTotalLoad = output[i]
+                        };
+
+                        await _loadService.AddLoadAsync(newLoad);
+
+                    }
+                    else
+                    {
+                        existingLoad.PPForecastedTotalLoad = output[i];
+
+                        await _loadService.UpdateLoadAsync(existingLoad);
+                    }
+                }
+                currentDate = currentDate.AddDays(1);
+            }
         }
     }
 }

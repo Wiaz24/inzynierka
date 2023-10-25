@@ -22,37 +22,37 @@
                 <Card Class="mycard">
                     <CardBody>
                         <CardTitle>Run web scratcher and update database</CardTitle>
-                        <EditForm Model="dateRange" OnValidSubmit="UpdateDatabase">
+                        <EditForm Model="dateRangeToDownload" OnValidSubmit="DownloadNewData">
                             <DataAnnotationsValidator />
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="StartDate">Start Date</label>
-                                        <InputDate class="form-control" id="StartDate" @bind-Value="dateRange.StartDate" />
-                                        <ValidationMessage For="() => dateRange.StartDate"></ValidationMessage>
+                                        <InputDate class="form-control" id="StartDate" @bind-Value="dateRangeToDownload.StartDate" />
+                                        <ValidationMessage For="() => dateRangeToDownload.StartDate"></ValidationMessage>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group mb-3">
                                         <label for="EndDate">End Date</label>
-                                        <InputDate class="form-control" id="EndDate" @bind-Value="dateRange.EndDate" />
-                                        <ValidationMessage For="() => dateRange.EndDate"></ValidationMessage>
+                                        <InputDate class="form-control" id="EndDate" @bind-Value="dateRangeToDownload.EndDate" />
+                                        <ValidationMessage For="() => dateRangeToDownload.EndDate"></ValidationMessage>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-check mb-2">
-                                        <InputCheckbox class="mycheckbox" id="OverrideExisting" @bind-Value="dateRange.OverrideExisting" />
+                                        <InputCheckbox class="mycheckbox" id="OverrideExisting" @bind-Value="dateRangeToDownload.OverrideExisting" />
                                         <label for="OverrideExisting" class="form-label">Override existing values?</label>
                                     </div>
                                 </div>
                             </div>
                             
-                            <LoadingButton IsLoading="isLoading">
+                            <LoadingButton IsLoading="isLoadingDownload">
                                 Update database
                             </LoadingButton>
-                            @if(isLoading)
+                            @if(isLoadingDownload)
                             {
                                 <Progress Class="mb-2 mt-2">
                                     <ProgressBar Color="ProgressColor.Primary" Width="@updateProgressValue" Label="@(updateProgressValue + "%")" />
@@ -63,7 +63,7 @@
                 </Card>
             </div>
         </div>
-        <div class="d-flex justify-content-around align-items-stretch">
+        <div class="d-flex flex-column justify-content-around align-items-stretch">
             <div class="p-2 w-100">
                 <Card Class="mycard">
                     <CardBody>
@@ -87,9 +87,44 @@
             <div class="p-2 w-100">
                 <Card Class="mycard">
                     <CardBody>
-                        <CardTitle>Run predictor</CardTitle>
-                      
-                        <Button Color="ButtonColor.Primary" @onclick="MakePrediction" Type="ButtonType.Button">Run predictor</Button>
+                        <CardTitle>Run predictor and update database</CardTitle>
+                        <EditForm Model="dateRangeToPredict" OnValidSubmit="PredictNewData">
+                            <DataAnnotationsValidator />
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="StartDate">Start Date</label>
+                                        <InputDate class="form-control" id="StartDate" @bind-Value="dateRangeToPredict.StartDate" />
+                                        <ValidationMessage For="() => dateRangeToPredict.StartDate"></ValidationMessage>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group mb-3">
+                                        <label for="EndDate">End Date</label>
+                                        <InputDate class="form-control" id="EndDate" @bind-Value="dateRangeToPredict.EndDate" />
+                                        <ValidationMessage For="() => dateRangeToPredict.EndDate"></ValidationMessage>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check mb-2">
+                                        <InputCheckbox class="mycheckbox" id="OverrideExisting" @bind-Value="dateRangeToPredict.OverrideExisting" />
+                                        <label for="OverrideExisting" class="form-label">Override existing values?</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <LoadingButton IsLoading="isLoadingPredict">
+                                Update database
+                            </LoadingButton>
+                            @if (isLoadingPredict)
+                            {
+                                <Progress Class="mb-2 mt-2">
+                                    <ProgressBar Color="ProgressColor.Primary" Width="@updateProgressValue" Label="@(updateProgressValue + "%")" />
+                                </Progress>
+                            }
+                        </EditForm>
                     </CardBody>
                 </Card>
             </div>
@@ -122,8 +157,11 @@
 
         public bool OverrideExisting { get; set; }
     }
-    DateRange dateRange = new DateRange();
-    private bool isLoading = false;
+    DateRange dateRangeToDownload = new DateRange();
+    DateRange dateRangeToPredict = new DateRange();
+
+    private bool isLoadingDownload = false;
+    private bool isLoadingPredict = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -135,10 +173,13 @@
         };
     }
 
-    private async Task UpdateDatabase()
+    private async Task DownloadNewData()
     {
-        isLoading = true;
-        await LoadService.DownloadLoadsAsync(dateRange.StartDate, dateRange.EndDate, updateProgress);
+        isLoadingDownload = true;
+        await LoadService.DownloadLoadsAsync(dateRangeToDownload.StartDate, 
+                                            dateRangeToDownload.EndDate, 
+                                            progress: updateProgress,
+                                            overrideValues: dateRangeToDownload.OverrideExisting);
 
         var message = new ToastMessage
         {
@@ -149,7 +190,28 @@
         };
         ToastService.Notify(message);
         await UpdateInfoPanel();
-        isLoading = false;
+        isLoadingDownload = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task PredictNewData()
+    {
+        isLoadingPredict = true;
+        await PredictService.PredictDataOnRangeAsync(dateRangeToPredict.StartDate, 
+                                                    dateRangeToPredict.EndDate, 
+                                                    progress: updateProgress,
+                                                    overrideValues: dateRangeToPredict.OverrideExisting);
+        
+        var message = new ToastMessage
+            {
+                Type = ToastType.Success,
+                Title = "Success",
+                HelpText = $"{DateTime.Now}",
+                Message = $"Database has been updated"
+            };
+        ToastService.Notify(message);
+        await UpdateInfoPanel();
+        isLoadingPredict = false;
         await InvokeAsync(StateHasChanged);
     }
 
@@ -197,14 +259,4 @@
             await UpdateInfoPanel();
         }
     }
-
-    private async Task MakePrediction()
-    {
-        var points = LoadService.GetLoads(DateTime.Today.AddDays(-4).AddHours(1), DateTime.Today, false);
-        float[] inputs = points.Select(x => x.ActualTotalLoad).ToArray();
-        var answers = PredictService.Predict(inputs);
-        int i = 0;
-    }
-
-
 }

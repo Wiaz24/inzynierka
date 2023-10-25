@@ -18,12 +18,12 @@ namespace PowerPredictor.Models
         /// <summary>
         /// Real total load value in MW
         /// </summary>
-        public float ActualTotalLoad { get; set; }
+        public float? ActualTotalLoad { get; set; }
 
         /// <summary>
         /// KSE forecasted total load value in MW
         /// </summary>
-        public float PSEForecastedTotalLoad { get; set; }
+        public float? PSEForecastedTotalLoad { get; set; }
 
         /// <summary>
         /// Power predictor forecasted total load value in MW
