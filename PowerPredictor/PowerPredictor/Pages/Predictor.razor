@@ -109,9 +109,31 @@
         UpdatePlot(start, end);
     }
 
+    private List<double>? ConvertDataForPlot(List<float?> inputData)
+    {
+        //step 1: trim null values at the end of the list
+        for (int i = inputData.Count - 1; i >= 0; i--)
+        {
+            if (inputData[i] is null)
+                inputData.RemoveAt(i);
+            else
+                break;
+        }
+
+        //step 2: check if there are nulls in the middle of the list
+        if (inputData.Any(x => x is null))
+            return null;
+
+        //step 3: convert to double
+        return inputData.ConvertAll(d => (double)d);
+    }
+
     private async void UpdatePlot(DateTime start, DateTime end, bool dayInterval = false)
     {
         displayedLoads = LoadService.GetLoads(start, end, dayInterval);
+
+        List<double>? realValues = ConvertDataForPlot(displayedLoads.Select(l => l.ActualTotalLoad).ToList());
+        List<double>? forecastValues = ConvertDataForPlot(displayedLoads.Select(l => l.PPForecastedTotalLoad).ToList());
 
         int TimeDifference;
 
@@ -133,14 +155,15 @@
         }
 
         chartData = new ChartData()
-        {
-            Labels = chartLabels,
-            Datasets = new List<IChartDataset>()
+            {
+                Labels = chartLabels,
+                Datasets = new List<IChartDataset>()
             {
                 new LineChartDataset()
                 {
+
                     Label = "Actual total load",
-                    Data = displayedLoads.Select(l => l.ActualTotalLoad).ToList().ConvertAll(d => (double)d),
+                    Data = realValues,
                     BackgroundColor = new List<string>{ ActualLoadColor },
                     BorderColor = new List<string>{ ActualLoadColor },
                     BorderWidth = new List<double>{2},
@@ -153,7 +176,7 @@
                 new LineChartDataset()
                 {
                     Label = "Forecast",
-                    Data = displayedLoads.Select(l => l.PPForecastedTotalLoad).ToList().ConvertAll(d => (double)d),
+                    Data = forecastValues,
                     BackgroundColor = new List<string>{ ForecastLoadColor },
                     BorderColor = new List<string>{ ForecastLoadColor },
                     BorderWidth = new List<double>{2},
@@ -166,7 +189,10 @@
             }
         };
         if (!firstRender)
+        {
             await lineChart.UpdateAsync(chartData, lineChartOptions);
+        }
+        
     }
 
 

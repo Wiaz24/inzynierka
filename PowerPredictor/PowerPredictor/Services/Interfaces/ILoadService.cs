@@ -5,18 +5,22 @@ namespace PowerPredictor.Services.Interfaces
 {
     public interface ILoadService
     {
-        Task<Load?> GetLoadAsync(int id);
+        Load? GetLoad(int id);
         Load? GetLoadByDate(DateTime date);
         List<Load> GetLoads(DateTime start, DateTime stop, bool dayInterval);
-        Task<Load> AddLoadAsync(Load load);
-        Task AddLoadsAsync(IEnumerable<Load> loads);
-        Task<Load> UpdateLoadAsync(Load load);
-        Task<Load?> DeleteLoadAsync(int id);
-        Task<IEnumerable<Load>> DownloadLoadsAsync(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues = true);
-        Task<Load?> GetEarliestData();
-        Task<Load?> GetLatestData();
-        Task<int> GetNumberOfLoads();
-        Task<int> GetNumberOfPredictions();
-        Task DeleteAllLoadsAsync();
+        void AddLoad(Load load);
+        void AddLoads(IEnumerable<Load> loads);
+        Load UpdateLoad(Load load);
+        Load? DeleteLoad(int id);
+        IEnumerable<Load> DownloadLoads(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues = true);
+        Load? GetEarliestData();
+        Load? GetLatestData();
+        int GetNumberOfLoads();
+        int GetNumberOfPredictions();
+        void DeleteAllLoads();
+        List<DateTime> GetMissingRealLoad();
+        List<DateTime> GetMissingPPForecast();
+
+        int InterpolateMissingRealLoad();
     }
 }

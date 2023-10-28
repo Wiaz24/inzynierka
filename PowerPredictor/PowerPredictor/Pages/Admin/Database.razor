@@ -67,11 +67,27 @@
             <div class="p-2 w-100">
                 <Card Class="mycard">
                     <CardBody>
-                        <CardTitle>Load data completeness</CardTitle>
-                        <CardText>Minimal date: <span style="color: orange;">@earliestDate</span></CardText>
-                        <CardText>Maximal date: <span style="color: orange;">@latestDate</span></CardText>
-                        <CardText>Total number of entries: <span style="color: orange;">@numberOfEntries</span></CardText>
-
+                        <div class="row mb-3">
+                            <div class="col">
+                                <h4> Entries in database</h4>
+                                <CardText>Minimal date: <span style="color: orange;">@earliestDate</span></CardText>
+                                <CardText>Maximal date: <span style="color: orange;">@latestDate</span></CardText>
+                                <CardText>Total number of entries: <span style="color: orange;">@numberOfEntries</span></CardText>
+                            </div>
+                            <div class="col">
+                                <h4> Real value data</h4>
+                                <CardText>Minimal missing date: <span style="color: orange;">@missingEarliestValue</span></CardText>
+                                <CardText>Maximal missing date: <span style="color: orange;">@missingLatestValue</span></CardText>
+                                <CardText>Missing values: <span style="color: orange;">@missingValuesCount</span></CardText>
+                            </div>
+                            <div class="col">
+                                <h4> Predictions</h4>
+                                <CardText>Minimal missing date: <span style="color: orange;">@missingEarliestPredictions</span></CardText>
+                                <CardText>Maximal missing date: <span style="color: orange;">@missingLatestPredictions</span></CardText>
+                                <CardText>Missing values: <span style="color: orange;">@missingPredictionsCount</span></CardText>
+                            </div>
+                        </div>
+                        
                         <p>Scrapped data completeness</p>
                         <Progress Class="mb-3">
                             <ProgressBar Color="ProgressColor.Primary" Width="@scrappedDataCompleteness" Label="@(scrappedDataCompleteness + "%")" />
@@ -81,6 +97,7 @@
                             <ProgressBar Color="ProgressColor.Primary" Width="@predictionCompletness" Label="@(predictionCompletness + "%")" />
                         </Progress>
                         <Button Color="ButtonColor.Danger" @onclick="ClearLoadsAsync" Type="ButtonType.Button">Clear load table</Button>
+
                     </CardBody>
                 </Card>
             </div>
@@ -143,6 +160,16 @@
     System.Progress<int> updateProgress = new Progress<int>();
     private int updateProgressValue = 0;
 
+    private List<DateTime> missingLoads => LoadService.GetMissingRealLoad();
+    private int missingValuesCount => missingLoads.Count;
+    private DateTime? missingEarliestValue => missingLoads.Any() ? missingLoads.Min() : null;
+    private DateTime? missingLatestValue => missingLoads.Any() ? missingLoads.Max() : null;
+
+    private List<DateTime> missingPredictions => LoadService.GetMissingPPForecast();
+    private int missingPredictionsCount => missingPredictions.Count;
+    private DateTime? missingEarliestPredictions => missingPredictions.Any() ? missingPredictions.Min() : null;
+    private DateTime? missingLatestPredictions => missingPredictions.Any() ? missingPredictions.Max() : null;
+
     private ConfirmDialog dialog = default!;
 
     public class DateRange
@@ -165,7 +192,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await UpdateInfoPanel();
+        UpdateInfoPanel();
         updateProgress.ProgressChanged += (sender, e) =>
         {
             updateProgressValue = e;
@@ -176,7 +203,7 @@
     private async Task DownloadNewData()
     {
         isLoadingDownload = true;
-        await LoadService.DownloadLoadsAsync(dateRangeToDownload.StartDate, 
+        LoadService.DownloadLoads(dateRangeToDownload.StartDate, 
                                             dateRangeToDownload.EndDate, 
                                             progress: updateProgress,
                                             overrideValues: dateRangeToDownload.OverrideExisting);
@@ -189,7 +216,7 @@
             Message = $"Database has been updated"
         };
         ToastService.Notify(message);
-        await UpdateInfoPanel();
+        UpdateInfoPanel();
         isLoadingDownload = false;
         await InvokeAsync(StateHasChanged);
     }
@@ -197,6 +224,7 @@
     private async Task PredictNewData()
     {
         isLoadingPredict = true;
+        await InvokeAsync(StateHasChanged);
         await PredictService.PredictDataOnRangeAsync(dateRangeToPredict.StartDate, 
                                                     dateRangeToPredict.EndDate, 
                                                     progress: updateProgress,
@@ -210,19 +238,19 @@
                 Message = $"Database has been updated"
             };
         ToastService.Notify(message);
-        await UpdateInfoPanel();
+        UpdateInfoPanel();
         isLoadingPredict = false;
         await InvokeAsync(StateHasChanged);
     }
 
-    private async Task UpdateInfoPanel()
+    private void UpdateInfoPanel()
     {
-        var start = await LoadService.GetEarliestData();
-        var end = await LoadService.GetLatestData();
+        var start = LoadService.GetEarliestData();
+        var end = LoadService.GetLatestData();
         earliestDate = start is null ? null : start.Date;
         latestDate = start is null ? null : end.Date;
 
-        numberOfEntries = await LoadService.GetNumberOfLoads();
+        numberOfEntries = LoadService.GetNumberOfLoads();
 
         TimeSpan? timeSpan = (latestDate - earliestDate);
         if (timeSpan.HasValue)
@@ -230,7 +258,7 @@
         else
             scrappedDataCompleteness = 0;
 
-        int numberOfPredictions = await LoadService.GetNumberOfPredictions();
+        int numberOfPredictions = LoadService.GetNumberOfPredictions();
 
         if (numberOfEntries > 0)
             predictionCompletness = (int)(numberOfPredictions * 100 / numberOfEntries);
@@ -247,7 +275,7 @@
 
         if (confirmation)
         {
-            await LoadService.DeleteAllLoadsAsync();
+            LoadService.DeleteAllLoads();
             var message = new ToastMessage
                 {
                     Type = ToastType.Success,
@@ -256,7 +284,7 @@
                     Message = $"Load table has been cleared"
                 };
             ToastService.Notify(message);
-            await UpdateInfoPanel();
+            UpdateInfoPanel();
         }
     }
 }

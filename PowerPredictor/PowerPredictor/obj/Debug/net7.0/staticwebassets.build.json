@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CMCcohU3qU/wcmb9NhfB2wrZpxJnMwp51BwAXMC5R0A=",
+  "Hash": "jtApF2cdKJGL/uqY/nQ8vdX7j5ErjqpdYwpdsAT4YAI=",
   "Source": "PowerPredictor",
   "BasePath": "_content/PowerPredictor",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "PowerPredictor\\wwwroot",
       "Source": "PowerPredictor",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "Pattern": "**"
     }
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "C:\\Users\\Ja\\.nuget\\packages\\blazor.bootstrap\\1.10.3\\staticwebassets\\icon\\128X128.png"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PowerPredictor.styles.css",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PowerPredictor.styles.css",
       "SourceId": "PowerPredictor",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "PowerPredictor.styles.css",
       "AssetKind": "All",
@@ -99,13 +99,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PowerPredictor.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\bundle\\PowerPredictor.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PowerPredictor.bundle.scp.css",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PowerPredictor.bundle.scp.css",
       "SourceId": "PowerPredictor",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "PowerPredictor.bundle.scp.css",
       "AssetKind": "All",
@@ -116,13 +116,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PowerPredictor.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\PowerPredictor.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\OFL.txt",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\OFL.txt",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/OFL.txt",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\OFL.txt"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\Onest-VariableFont_wght.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\Onest-VariableFont_wght.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/Onest-VariableFont_wght.ttf",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\Onest-VariableFont_wght.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\README.txt",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\README.txt",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/README.txt",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\README.txt"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Black.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Black.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-Black.ttf",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-Black.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Bold.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Bold.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-Bold.ttf",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-Bold.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraBold.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraBold.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-ExtraBold.ttf",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-ExtraBold.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraLight.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-ExtraLight.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-ExtraLight.ttf",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-ExtraLight.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Light.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Light.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-Light.ttf",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-Light.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Medium.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Medium.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-Medium.ttf",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-Medium.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Regular.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Regular.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-Regular.ttf",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-Regular.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-SemiBold.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-SemiBold.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-SemiBold.ttf",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-SemiBold.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Thin.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\fonts\\static\\Onest-Thin.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/fonts/static/Onest-Thin.ttf",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-Thin.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\site.css",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\favicon.png",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "images/pplogo.png",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pplogo.png"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "images/pplogo-transparent.png",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pplogo-transparent.png"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pp-transparent.png",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pp-transparent.png",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "images/pp-transparent.png",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pp-transparent.png"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\onnx\\LSTM_predictor.onnx",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\onnx\\LSTM_predictor.onnx",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "onnx/LSTM_predictor.onnx",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\onnx\\LSTM_predictor.onnx"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\.gitignore",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\.gitignore",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/.gitignore",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\.gitignore"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\bower.json",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\bower.json",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/bower.json",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\bower.json"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\css\\style.css",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\css\\style.css",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/demo/css/style.css",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\demo\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\index.html",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\index.html",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/demo/index.html",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\demo\\index.html"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\app.js",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\app.js",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/demo/js/app.js",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\demo\\js\\app.js"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\lib\\stats.js",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\js\\lib\\stats.js",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/demo/js/lib/stats.js",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\demo\\js\\lib\\stats.js"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\particles.json",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\demo\\particles.json",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/demo/particles.json",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\demo\\particles.json"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\LICENSE.md",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\LICENSE.md",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/LICENSE.md",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\package.json",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\package.json",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/package.json",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\package.json"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.js",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.js",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/particles.js",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\particles.js"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.json",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.json",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/particles.json",
       "AssetKind": "All",
@@ -799,27 +799,10 @@
       "OriginalItemSpec": "wwwroot\\particles\\particles.json"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\particles.min.js",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\README.md",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
-      "BasePath": "_content/PowerPredictor",
-      "RelativePath": "particles/particles.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\particles\\particles.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\particles\\README.md",
-      "SourceId": "PowerPredictor",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
       "RelativePath": "particles/README.md",
       "AssetKind": "All",

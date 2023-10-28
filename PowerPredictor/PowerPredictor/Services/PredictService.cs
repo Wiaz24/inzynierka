@@ -142,14 +142,14 @@ namespace PowerPredictor.Services
                             PPForecastedTotalLoad = output[i]
                         };
 
-                        await _loadService.AddLoadAsync(newLoad);
+                        _loadService.AddLoad(newLoad);
 
                     }
                     else
                     {
                         existingLoad.PPForecastedTotalLoad = output[i];
 
-                        await _loadService.UpdateLoadAsync(existingLoad);
+                        _loadService.UpdateLoad(existingLoad);
                     }
                 }
                 currentDate = currentDate.AddDays(1);

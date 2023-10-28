@@ -13,9 +13,9 @@ namespace PowerPredictor.Services
         {
             _context = dbContext;
         }
-        public async Task<Load?> GetLoadAsync(int id)
+        public  Load? GetLoad(int id)
         {
-            return await _context.FindAsync<Load>(id);
+            return _context.Find<Load>(id);
         }
         public Load? GetLoadByDate(DateTime date)
         {
@@ -31,68 +31,63 @@ namespace PowerPredictor.Services
             return query.ToList();
         }
 
-        public async Task<Load> AddLoadAsync(Load load)
+        public void AddLoad(Load load)
         {
             _context.Loads.Add(load);
-            await _context.SaveChangesAsync();
-            return load;
+            _context.SaveChanges();
         }
-        public async Task AddLoadsAsync(IEnumerable<Load> loads)
+        public void AddLoads(IEnumerable<Load> loads)
         {
             _context.Loads.AddRange(loads);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return;
         }
-        public async Task<Load> UpdateLoadAsync(Load load)
+        public Load UpdateLoad(Load load)
         {
             _context.Loads.Update(load);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return load;
         }
-        public async Task<Load?> DeleteLoadAsync(int id)
+        public Load? DeleteLoad(int id)
         {
-            var load = await _context.Loads.FindAsync(id);
+            var load = _context.Loads.Find(id);
             if (load == null)
             {
                 return null;
             }
             _context.Loads.Remove(load);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return load;
         }
-        public async Task<Load?> GetEarliestData()
+        public Load? GetEarliestData()
         {
-            var load = await _context.Loads.OrderBy(l => l.Date).FirstOrDefaultAsync();
-            return load;
+            return _context.Loads.OrderBy(l => l.Date).FirstOrDefault();
         }
 
-        public async Task<Load?> GetLatestData()
+        public Load? GetLatestData()
         {
-            var load = await _context.Loads.OrderByDescending(l => l.Date).FirstOrDefaultAsync();
-            return load;
+            return _context.Loads.OrderByDescending(l => l.Date).FirstOrDefault();
         }
 
-        public async Task<int> GetNumberOfLoads()
+        public int GetNumberOfLoads()
         {
-            return await _context.Loads.CountAsync();
+            return _context.Loads.Count();
         }
 
-        public async Task<int> GetNumberOfPredictions()
+        public int GetNumberOfPredictions()
         {
-            int count = await _context.Loads
+            return _context.Loads
                 .Where(load => load.PPForecastedTotalLoad != null)
-                .CountAsync();
-
-            return count;
+                .Count();
         }
 
-        public async Task DeleteAllLoadsAsync()
+        public void DeleteAllLoads()
         {
             _context.Loads.RemoveRange(_context.Loads);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task<IEnumerable<Load>> DownloadLoadsAsync(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues)
+        public  IEnumerable<Load> DownloadLoads(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues)
         {
             string baseURL = "https://www.wnp.pl/energetyka/notowania/zapotrzebowanie_mocy_kse/?d=";
             var web = new HtmlWeb();
@@ -145,7 +140,7 @@ namespace PowerPredictor.Services
                         loads.Append(load);
 
                         //find if load with provided date already exists. Date is not primary key
-                        var existingLoad = await _context.Loads.Where(l => l.Date == dateTime).FirstOrDefaultAsync();
+                        var existingLoad = _context.Loads.Where(l => l.Date == dateTime).FirstOrDefault();
                         if (existingLoad is null)
                         {
                             _context.Loads.Add(load);
@@ -162,9 +157,61 @@ namespace PowerPredictor.Services
                     }
                 }
                 currentDay++;
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             } 
             return loads;
+        }
+
+        public List<DateTime> GetMissingRealLoad()
+        {
+            var result = _context.Loads
+                .Where(l => l.ActualTotalLoad == null)
+                .Select(l => l.Date)
+                .ToList();
+            return result ?? new List<DateTime>();
+        }
+
+        public List<DateTime> GetMissingPPForecast()
+        {
+            var firstLoad = GetEarliestData();
+
+            var result = _context.Loads
+                .Where(l => l.PPForecastedTotalLoad == null)
+                .Select(l => l.Date)
+                .Where(l => l > firstLoad.Date.AddDays(168))
+                .ToList();
+
+            return result ?? new List<DateTime>();
+        }
+
+        public int InterpolateMissingRealLoad()
+        {
+            var result = _context.Loads
+                .Where(l => l.ActualTotalLoad == null)
+                .OrderBy(l => l.Date)
+                .ToList();
+
+            int count = 0;
+            foreach (var load in result)
+            {
+                var previousLoad = _context.Loads
+                    .Where(l => l.Date < load.Date && l.ActualTotalLoad != null)
+                    .OrderByDescending(l => l.Date)
+                    .FirstOrDefault();
+                var nextLoad = _context.Loads
+                    .Where(l => l.Date > load.Date && l.ActualTotalLoad != null)
+                    .OrderBy(l => l.Date)
+                    .FirstOrDefault();
+
+                if (previousLoad != null && nextLoad != null)
+                {
+                    load.ActualTotalLoad = (previousLoad.ActualTotalLoad + nextLoad.ActualTotalLoad) / 2;
+                    _context.Entry(load).State = EntityState.Modified;
+                    count++;
+                }
+            }
+            _context.SaveChanges();
+            return count;
         }
     }
 }
