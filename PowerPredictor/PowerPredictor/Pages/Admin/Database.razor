@@ -151,14 +151,15 @@
 
 
 @code {
-    public int scrappedDataCompleteness = 0;
-    public int predictionCompletness = 0;
-    DateTime? earliestDate = default!;
-    DateTime? latestDate = default!;
-    int numberOfEntries = 0;
+
 
     System.Progress<int> updateProgress = new Progress<int>();
     private int updateProgressValue = 0;
+
+    DateTime? earliestDate => LoadService.GetEarliestData()?.Date;
+    DateTime? latestDate => LoadService.GetLatestData()?.Date;
+    int numberOfEntries => LoadService.GetNumberOfLoads();
+
 
     private List<DateTime> missingLoads => LoadService.GetMissingRealLoad();
     private int missingValuesCount => missingLoads.Count;
@@ -169,6 +170,11 @@
     private int missingPredictionsCount => missingPredictions.Count;
     private DateTime? missingEarliestPredictions => missingPredictions.Any() ? missingPredictions.Min() : null;
     private DateTime? missingLatestPredictions => missingPredictions.Any() ? missingPredictions.Max() : null;
+
+    public int scrappedDataCompleteness = 0;
+    public int predictionCompletness = 0;
+    
+    
 
     private ConfirmDialog dialog = default!;
 
@@ -225,7 +231,7 @@
     {
         isLoadingPredict = true;
         await InvokeAsync(StateHasChanged);
-        await PredictService.PredictDataOnRangeAsync(dateRangeToPredict.StartDate, 
+        PredictService.PredictDataOnRange(dateRangeToPredict.StartDate, 
                                                     dateRangeToPredict.EndDate, 
                                                     progress: updateProgress,
                                                     overrideValues: dateRangeToPredict.OverrideExisting);
@@ -245,12 +251,12 @@
 
     private void UpdateInfoPanel()
     {
-        var start = LoadService.GetEarliestData();
-        var end = LoadService.GetLatestData();
-        earliestDate = start is null ? null : start.Date;
-        latestDate = start is null ? null : end.Date;
+        //var start = LoadService.GetEarliestData();
+        //var end = LoadService.GetLatestData();
+        //earliestDate = start is null ? null : start.Date;
+        //latestDate = start is null ? null : end.Date;
 
-        numberOfEntries = LoadService.GetNumberOfLoads();
+        //numberOfEntries = LoadService.GetNumberOfLoads();
 
         TimeSpan? timeSpan = (latestDate - earliestDate);
         if (timeSpan.HasValue)
@@ -258,10 +264,8 @@
         else
             scrappedDataCompleteness = 0;
 
-        int numberOfPredictions = LoadService.GetNumberOfPredictions();
-
         if (numberOfEntries > 0)
-            predictionCompletness = (int)(numberOfPredictions * 100 / numberOfEntries);
+            predictionCompletness = (int)Math.Round((1 - ((double)missingPredictionsCount / (double)numberOfEntries)) * 100);
         else
             predictionCompletness = 0;
     }

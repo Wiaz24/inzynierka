@@ -13,7 +13,7 @@ namespace PowerPredictor.Services
         {
             _context = dbContext;
         }
-        public  Load? GetLoad(int id)
+        public  Load? GetLoadById(int id)
         {
             return _context.Find<Load>(id);
         }
@@ -27,7 +27,7 @@ namespace PowerPredictor.Services
                 .Where(load => load.Date >= start && load.Date <= stop);
             if (dayInterval)
                 query = query.Where(load => load.Date.Hour == 0 && load.Date.Minute == 0);
-
+                
             return query.ToList();
         }
 
@@ -167,6 +167,7 @@ namespace PowerPredictor.Services
             var result = _context.Loads
                 .Where(l => l.ActualTotalLoad == null)
                 .Select(l => l.Date)
+                .Where(l => l < DateTime.Today)
                 .ToList();
             return result ?? new List<DateTime>();
         }

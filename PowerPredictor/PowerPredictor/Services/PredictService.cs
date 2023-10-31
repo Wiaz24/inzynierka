@@ -9,12 +9,12 @@ namespace PowerPredictor.Services
 {
     public class PredictServiceConfiguration
     {
-        public string ModelPath { get; set; }
-        public string InputName { get; set; }
-        public string OutputName { get; set; }
+        public string ModelPath { get; set; } = null!;
+        public string InputName { get; set; } = null!;
+        public string OutputName { get; set; } = null!;
         public int InputLength { get; set; }
         public int OutputLength { get; set; }
-        public int[] InputShape { get; set; }
+        public int[] InputShape { get; set; } = null!;
         public float MinScalerValue { get; set; }
         public float MaxScalerValue { get; set; }
     }
@@ -40,6 +40,13 @@ namespace PowerPredictor.Services
             onnxSession = new InferenceSession(fullPath);
         }
 
+        /// <summary>
+        /// Performs min-max normalization on input data
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
         private float[] MinMaxScaler(float[] input, float minValue, float maxValue)
         {
             float[] output = new float[input.Length];
@@ -51,6 +58,13 @@ namespace PowerPredictor.Services
             return output;
         }
 
+        /// <summary>
+        /// Performs inverse min-max normalization on input data
+        /// </summary>
+        /// <param name="normalizedInput"></param>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
         private float[] InverseMinMaxScaler(float[] normalizedInput, float minValue, float maxValue)
         {
             float[] originalData = new float[normalizedInput.Length];
@@ -63,11 +77,6 @@ namespace PowerPredictor.Services
             return originalData;
         }
 
-        /// <summary>
-        /// Predicts future power consuption using LSTM neural network
-        /// </summary>
-        /// <param name="input"> 168 pevius datapoints </param>
-        /// <returns> 24 next predicted datapoints </returns>
         public float[] Predict(float[] input)
         {
             if (input.Length != config.InputLength)
@@ -91,7 +100,7 @@ namespace PowerPredictor.Services
             return result;
         }
 
-        public async Task PredictDataOnRangeAsync(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues)
+        public void PredictDataOnRange(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues)
         {
             DateTime currentDate = start.ToDateTime(TimeOnly.Parse("00:00"));
             int numOfDays = (stop.DayNumber - start.DayNumber) + 1;
