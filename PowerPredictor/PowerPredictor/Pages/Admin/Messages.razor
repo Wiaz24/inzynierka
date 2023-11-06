@@ -65,7 +65,7 @@
     private async Task<GridDataProviderResult<ContactMessage>> DataProvider(GridDataProviderRequest<ContactMessage> request)
     {
         if (messages is null || edited) // pull users only one time for client-side filtering, sorting, and paging
-            messages = ContactMessageService.GetAllMessages();
+            messages = await ContactMessageService.GetAllMessagesAsync();
 
         edited = false;
         return await Task.FromResult(request.ApplyTo(messages));
@@ -86,7 +86,7 @@
         if (confirmation)
         {
             edited = true;
-            ContactMessageService.DeleteMessage(context.Id);
+            await ContactMessageService.DeleteMessageAsync(context.Id);
             await grid.RefreshDataAsync();
             var message = new ToastMessage
                 {

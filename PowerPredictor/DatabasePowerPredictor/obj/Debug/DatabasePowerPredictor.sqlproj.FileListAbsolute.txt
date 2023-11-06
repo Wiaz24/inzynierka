@@ -10,3 +10,7 @@ C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\bin\Debug\D
 C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.sqlproj.AssemblyReference.cache
 C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.dll
 C:\Users\Ja\Desktop\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\DatabasePowerPredictor.pdb
+C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\Model.xml
+C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\refactor.xml
+C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\postdeploy.sql
+C:\Users\Ja\Desktop\praca inżynierska\inzynierka\PowerPredictor\DatabasePowerPredictor\obj\Debug\predeploy.sql

@@ -1,41 +1,47 @@
-﻿using PowerPredictor.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
+using PowerPredictor.Models;
 using PowerPredictor.Services.Interfaces;
 
 namespace PowerPredictor.Services
 {
     public class ContactMessageService : IContactMessageService
     {
-        private readonly AppDbContext _context;
-        public ContactMessageService(AppDbContext dbContext)
+        private readonly IDbContextFactory<AppDbContext> _contextFactory;
+        public ContactMessageService(IDbContextFactory<AppDbContext> dbContextFactory)
         {
-            _context = dbContext;
+            _contextFactory = dbContextFactory;
         }
-        public bool AddMessage(ContactMessage message)
+        public async Task<bool> AddMessageAsync(ContactMessage message)
         {
-            message.Date = DateTime.Now;
-            _context.ContactMessages.Add(message);
-            if (_context.SaveChanges() == 1) return true;
-            return false;
-        }
-
-        public bool DeleteMessage(int id)
-        {
-            var message = GetMessageById(id);
-            if (message == null) return false;
-            _context.ContactMessages.Remove(message);
-            if (_context.SaveChanges() == 1) return true;
-            return false;
+            using(var context = _contextFactory.CreateDbContext())
+            {
+                message.Date = DateTime.Now;
+                context.ContactMessages.Add(message);
+                if (await context.SaveChangesAsync() == 1) return true;
+                return false;
+            }
         }
 
-        public List<ContactMessage> GetAllMessages()
+        public async Task<bool> DeleteMessageAsync(int id)
         {
-            return _context.ContactMessages.ToList();
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                var message = await context.ContactMessages.FindAsync(id);
+                if (message == null) return false;
+                context.ContactMessages.Remove(message);
+
+                if (await context.SaveChangesAsync() == 1) return true;
+                return false;
+            }
         }
 
-        public ContactMessage? GetMessageById(int id)
+        public async Task<List<ContactMessage>> GetAllMessagesAsync()
         {
-            var result = _context.ContactMessages.Find(id);
-            return result;
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                return await context.ContactMessages.ToListAsync();
+            }
         }
     }
 }

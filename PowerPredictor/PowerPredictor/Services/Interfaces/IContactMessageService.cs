@@ -4,9 +4,8 @@ namespace PowerPredictor.Services.Interfaces
 {
     public interface IContactMessageService
     {
-        ContactMessage? GetMessageById(int id);
-        bool AddMessage(ContactMessage message);
-        bool DeleteMessage(int id);
-        List<ContactMessage> GetAllMessages();
+        Task<bool> AddMessageAsync(ContactMessage message);
+        Task<bool> DeleteMessageAsync(int id);
+        Task<List<ContactMessage>> GetAllMessagesAsync();
     }
 }

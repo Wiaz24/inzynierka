@@ -79,7 +79,7 @@
 
     private void HandleContactMessage()
     {
-        ContactMessageService.AddMessage(contactForm);
+        ContactMessageService.AddMessageAsync(contactForm);
         alert = true;
         contactForm = new ContactMessage();
     }
