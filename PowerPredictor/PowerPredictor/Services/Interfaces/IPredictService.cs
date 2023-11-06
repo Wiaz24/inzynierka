@@ -17,6 +17,6 @@
         /// <param name="progress"> Progress object to track progress</param>
         /// <param name="overrideValues"> If true, will override existing database entries</param>
         /// <returns></returns>
-        void PredictDataOnRange(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues);
+        Task PredictDataOnRangeAsync(DateOnly start, DateOnly stop, IProgress<int>? progress, bool overrideValues);
     }
 }

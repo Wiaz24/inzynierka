@@ -231,7 +231,7 @@
     {
         isLoadingPredict = true;
         await InvokeAsync(StateHasChanged);
-        PredictService.PredictDataOnRange(dateRangeToPredict.StartDate, 
+        await PredictService.PredictDataOnRangeAsync(dateRangeToPredict.StartDate, 
                                                     dateRangeToPredict.EndDate, 
                                                     progress: updateProgress,
                                                     overrideValues: dateRangeToPredict.OverrideExisting);
