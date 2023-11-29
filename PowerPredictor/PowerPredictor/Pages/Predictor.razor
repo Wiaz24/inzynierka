@@ -74,39 +74,39 @@
         firstRender = false;
     }
 
-    private void ShowToday()
+    private async Task ShowToday()
     {
         var start = DateTime.Today;
         var end = DateTime.Today.AddHours(23);;
-        UpdatePlot(start, end);
+        await UpdatePlot(start, end);
     }
 
-    private void ShowThisWeek()
+    private async Task ShowThisWeek()
     {
         var start = DateTime.Today.AddDays(-7);
         var end = DateTime.Today.AddHours(23); ;
-        UpdatePlot(start, end);
+        await UpdatePlot(start, end);
     }
 
-    private void ShowThisMonth()
+    private async Task ShowThisMonth()
     {
         var start = DateTime.Today.AddMonths(-1);
         var end = DateTime.Today.AddHours(23); ;
-        UpdatePlot(start, end);
+        await UpdatePlot(start, end);
     }
 
-    private void ShowThisYear()
+    private async Task ShowThisYear()
     {
         var start = DateTime.Today.AddYears(-1);
         var end = DateTime.Today.AddHours(23); ;
-        UpdatePlot(start, end, true);
+        await UpdatePlot(start, end, true);
     }
 
-    private void ShowSelectedPeriod()
+    private async Task ShowSelectedPeriod()
     {
         var start = dateRange.StartDate.ToDateTime(TimeOnly.MinValue);          //from  00:00
         var end = dateRange.EndDate.ToDateTime(TimeOnly.MinValue.AddHours(23)); //to    23:00
-        UpdatePlot(start, end);
+        await UpdatePlot(start, end);
     }
 
     private List<double>? ConvertDataForPlot(List<float?> inputData)
@@ -128,9 +128,9 @@
         return inputData.ConvertAll(d => (double)d);
     }
 
-    private async void UpdatePlot(DateTime start, DateTime end, bool dayInterval = false)
+    private async Task UpdatePlot(DateTime start, DateTime end, bool dayInterval = false)
     {
-        displayedLoads = LoadService.GetLoads(start, end, dayInterval);
+        displayedLoads = await LoadService.GetLoadsAsync(start, end, dayInterval);
 
         List<double>? realValues = ConvertDataForPlot(displayedLoads.Select(l => l.ActualTotalLoad).ToList());
         List<double>? forecastValues = ConvertDataForPlot(displayedLoads.Select(l => l.PPForecastedTotalLoad).ToList());
@@ -153,6 +153,8 @@
                 .Select(i => start.AddHours(i).ToString(TimeDifference > 24 ? "dd.MM.yyyy HH:mm" : "HH:mm"))
                 .ToList();
         }
+
+        
 
         chartData = new ChartData()
             {
@@ -218,7 +220,7 @@
         lineChartOptions.Scales.Y.Title.Display = true;
         lineChartOptions.Scales.Y.Title.Color = "white";
 
-        ShowToday();
+        await ShowToday();
 
         await lineChart.InitializeAsync(chartData, lineChartOptions);
     } 

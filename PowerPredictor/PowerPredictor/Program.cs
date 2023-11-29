@@ -43,7 +43,7 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
 {
-    options.TokenLifespan = TimeSpan.FromHours(1); // Ustaw czas wa¿noœci na 1 godzinê
+    options.TokenLifespan = TimeSpan.FromHours(1); // Ustaw czas waï¿½noï¿½ci na 1 godzinï¿½
 });
 
 var app = builder.Build();
@@ -66,7 +66,8 @@ using (var scope = app.Services.CreateScope())
         ?? throw new NullReferenceException("No admin settings found in config file");
 
     var userManager = services.GetRequiredService<UserManager<User>>();
-    var admin = await userManager.FindByEmailAsync(adminSettings["Email"]);
+    var admin = await userManager.FindByEmailAsync(adminSettings["Email"] 
+        ?? throw new NullReferenceException("Invalid admin email adress in config file"));
     if (admin == null)
     {
         admin = new User
@@ -96,7 +97,7 @@ using (var scope = app.Services.CreateScope())
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // The default HSTS value is 30 days
     app.UseHsts();
 }
 

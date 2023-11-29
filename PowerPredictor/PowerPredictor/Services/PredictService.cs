@@ -50,7 +50,7 @@ namespace PowerPredictor.Services
         /// <param name="minValue"></param>
         /// <param name="maxValue"></param>
         /// <returns></returns>
-        private float[] MinMaxScaler(float[] input, float minValue, float maxValue)
+        public static float[] MinMaxScaler(float[] input, float minValue, float maxValue)
         {
             float[] output = new float[input.Length];
 
@@ -68,7 +68,7 @@ namespace PowerPredictor.Services
         /// <param name="minValue"></param>
         /// <param name="maxValue"></param>
         /// <returns></returns>
-        private float[] InverseMinMaxScaler(float[] normalizedInput, float minValue, float maxValue)
+        public static float[] InverseMinMaxScaler(float[] normalizedInput, float minValue, float maxValue)
         {
             float[] originalData = new float[normalizedInput.Length];
 

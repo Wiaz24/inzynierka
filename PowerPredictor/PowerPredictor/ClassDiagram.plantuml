@@ -1,0 +1,18 @@
+@startuml PredictService
+class PredictService {
+    - config: PredictServiceConfiguration
+
+}
+
+class PredictServiceConfiguration {
+    + ModelPath: string
+    + InputName: string
+    + OutputName: string
+    + InputLength: int
+    + OutputLength: int
+    + MinScalerValue: float
+    + MaxScalerValue: float
+}
+
+PredictService --> PredictServiceConfiguration
+@enduml

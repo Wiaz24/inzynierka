@@ -12,21 +12,30 @@ namespace PowerPredictor.Data
         private readonly bool requireUppercase = true;
         private readonly bool requireNonAlphanumeric = false;
 
+        public ValidationResult? IsValidForTests(object? value,
+                    ValidationContext validationContext)
+        {
+            return IsValid(value, validationContext);
+        }
+        
         /// <summary>
         /// Checks if password is valid
         /// </summary>
         /// <param name="value"> Provided password </param>
         /// <param name="validationContext"> Form context </param>
         /// <returns></returns>
-        protected override ValidationResult? IsValid(object value,
+        protected override ValidationResult? IsValid(object? value,
                     ValidationContext validationContext)
         {
-            string password = value.ToString() ?? "";
+            string password = (value as string) ??  string.Empty;
+            
+            if (password == null)
+                password = string.Empty;
 
             if (password.Length < minLenght)
                 return new ValidationResult($"Password must be at least {minLenght} characters long",
-                                       new[] { validationContext.MemberName });
-            
+                                           new[] { validationContext.MemberName });
+
             bool hasNumber = false;
             bool hasNonAlphanumeric = false;
             bool hasUppercase = false;

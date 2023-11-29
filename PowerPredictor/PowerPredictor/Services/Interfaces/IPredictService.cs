@@ -3,13 +3,6 @@
     public interface IPredictService
     {
         /// <summary>
-        /// Make prediction using neural network model
-        /// </summary>
-        /// <param name="input"> 168 previous data values with hour interval</param>
-        /// <returns> 24 predicted data values with hour interval</returns>
-        float[] Predict(float[] input);
-
-        /// <summary>
         /// Updates database with predicted values for given date range
         /// </summary>
         /// <param name="start"></param>

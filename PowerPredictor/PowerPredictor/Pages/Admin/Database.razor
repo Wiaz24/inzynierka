@@ -4,7 +4,7 @@
 @inject IPredictService PredictService
 @attribute [Authorize(Roles = "Admin")]
 
-<ConfirmDialog @ref="dialog" />
+<ConfirmDialog @ref="dialog" Class="ConfirmDialog" />
 
 <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6">
@@ -21,7 +21,7 @@
             <div class="p-2 col-8">
                 <Card Class="mycard">
                     <CardBody>
-                        <CardTitle>Run web scratcher and update database</CardTitle>
+                        <CardTitle>Run web scraper and update database</CardTitle>
                         <EditForm Model="dateRangeToDownload" OnValidSubmit="DownloadNewData">
                             <DataAnnotationsValidator />
                             <div class="row">
@@ -209,7 +209,7 @@
     private async Task DownloadNewData()
     {
         isLoadingDownload = true;
-        LoadService.DownloadLoads(dateRangeToDownload.StartDate, 
+        await LoadService.DownloadLoadsAsync(dateRangeToDownload.StartDate, 
                                             dateRangeToDownload.EndDate, 
                                             progress: updateProgress,
                                             overrideValues: dateRangeToDownload.OverrideExisting);
@@ -279,7 +279,7 @@
 
         if (confirmation)
         {
-            LoadService.DeleteAllLoads();
+            await LoadService.DeleteAllLoadsAsync();
             var message = new ToastMessage
                 {
                     Type = ToastType.Success,
