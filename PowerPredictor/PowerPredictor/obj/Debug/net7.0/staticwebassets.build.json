@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jtApF2cdKJGL/uqY/nQ8vdX7j5ErjqpdYwpdsAT4YAI=",
+  "Hash": "ZXts8KPS97XXFcK4jP3J0LWqtg3Bm9DvGjaI5PMR938=",
   "Source": "PowerPredictor",
   "BasePath": "_content/PowerPredictor",
   "Mode": "Default",
@@ -357,6 +357,23 @@
       "OriginalItemSpec": "wwwroot\\css\\fonts\\static\\Onest-Thin.ttf"
     },
     {
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "PowerPredictor",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
+      "BasePath": "_content/PowerPredictor",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
+    },
+    {
       "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
@@ -459,23 +476,6 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "PowerPredictor",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
-      "BasePath": "_content/PowerPredictor",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
-    },
-    {
       "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
@@ -544,12 +544,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pp-transparent.png",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
-      "RelativePath": "images/pplogo.png",
+      "RelativePath": "images/pp-transparent.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -558,7 +558,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\pplogo.png"
+      "OriginalItemSpec": "wwwroot\\images\\pp-transparent.png"
     },
     {
       "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo-transparent.png",
@@ -578,12 +578,12 @@
       "OriginalItemSpec": "wwwroot\\images\\pplogo-transparent.png"
     },
     {
-      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pp-transparent.png",
+      "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\images\\pplogo.png",
       "SourceId": "PowerPredictor",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\",
       "BasePath": "_content/PowerPredictor",
-      "RelativePath": "images/pp-transparent.png",
+      "RelativePath": "images/pplogo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -592,7 +592,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\pp-transparent.png"
+      "OriginalItemSpec": "wwwroot\\images\\pplogo.png"
     },
     {
       "Identity": "C:\\Users\\Ja\\Desktop\\praca inżynierska\\inzynierka\\PowerPredictor\\PowerPredictor\\wwwroot\\onnx\\LSTM_predictor.onnx",
